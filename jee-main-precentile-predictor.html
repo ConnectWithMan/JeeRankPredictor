@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JEE Main Percentile Predictor 2027 | Free Normalization Calculator</title>
+    <meta name="description" content="Predict your expected JEE Main percentile from expected marks across all shifts. Based on real NTA difficulty models. Free &amp; no registration.">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://jeerankpredictor.com/jee-main-precentile-predictor">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://jeerankpredictor.com/jee-main-precentile-predictor">
+    <meta property="og:title" content="JEE Main Percentile Predictor 2027 | Free Normalization Calculator">
+    <meta property="og:description" content="Predict your expected JEE Main percentile from expected marks across all shifts. Based on real NTA difficulty models. Free &amp; no registration.">
+    <meta property="og:image" content="https://jeerankpredictor.com/assets/img/og-image-percentile.jpg">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://jeerankpredictor.com/jee-main-precentile-predictor">
+    <meta name="twitter:title" content="JEE Main Percentile Predictor 2027 | Free Normalization Calculator">
+    <meta name="twitter:description" content="Predict your expected JEE Main percentile from expected marks across all shifts. Based on real NTA difficulty models. Free &amp; no registration.">
+    <meta name="twitter:image" content="https://jeerankpredictor.com/assets/img/og-image-percentile.jpg">
+
+    <!-- Schema.org JSON-LD Markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "JEE Main Percentile Predictor",
+      "url": "https://jeerankpredictor.com/jee-main-precentile-predictor",
+      "description": "An interactive calculator to predict expected NTA percentiles based on raw marks and shift difficulty metrics.",
+      "applicationCategory": "EducationalApplication",
+      "operatingSystem": "All"
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is the formula NTA uses for percentile score?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The percentile is calculated shift-wise: Percentile = 100 × (Number of candidates who appeared in the session with raw marks equal to or less than you) / (Total number of candidates in that session)."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the difference between percentage and percentile?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Percentage is the score calculated out of the maximum marks (e.g. 150/300 is 50%). Percentile represents the percentage of candidates who scored lower than or equal to you. A 99 percentile means you performed better than 99% of the candidates in that shift."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is the percentile calculated separately for Mathematics, Physics, and Chemistry?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, NTA calculates and prints individual percentile scores for Math, Physics, and Chemistry, alongside the overall composite percentile. These individual percentiles are used to break ties if two candidates finish with the same overall percentile."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        .grid-panel {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2.5rem;
+            margin: 2rem 0;
+        }
+        @media (min-width: 992px) {
+            .grid-panel {
+                grid-template-columns: 1.5fr 1fr;
+            }
+            .grid-panel:not(.has-results) {
+                grid-template-columns: 1fr;
+                max-width: 650px;
+                margin: 2rem auto;
+            }
+        }
+        .results-section {
+            display: none;
+            flex-direction: column;
+            gap: 1.5rem;
+            animation: slideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .percentile-glow-box {
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(59, 130, 246, 0.1) 100%);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            border-radius: var(--radius-md);
+            padding: 1.75rem;
+            text-align: center;
+        }
+        .percentile-glow-value {
+            font-size: 3rem;
+            font-weight: 900;
+            font-family: var(--font-heading);
+            color: var(--emerald);
+            margin: 0.25rem 0;
+        }
+        .shift-difficulty-tag {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            margin-top: 0.5rem;
+        }
+        .diff-easy { background: rgba(16, 185, 129, 0.15); color: #34d399; }
+        .diff-moderate { background: rgba(245, 158, 11, 0.15); color: #fbbf24; }
+        .diff-hard { background: rgba(244, 63, 94, 0.15); color: #fb7185; }
+        .method-step {
+            margin-bottom: 1.5rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-glow-purple"></div>
+    <div class="bg-glow-blue"></div>
+
+    <!-- Header Navigation -->
+    <header>
+        <div class="header-container">
+            <a href="/" class="logo-link">
+                <div class="logo-img">J</div>
+                <span class="logo-text">jeerankpredictor.com</span>
+            </a>
+            <nav>
+                <a href="/" class="nav-link">Home</a>
+                <a href="/jee-main-rank-predictor" class="nav-link">JEE Main</a>
+                <a href="/jee-advanced-rank-predictor" class="nav-link">JEE Advanced</a>
+                <a href="/jee-main-college-predictor" class="nav-link">NIT/IIIT Predictor</a>
+                <a href="/jee-advanced-college-predictor" class="nav-cta">IIT Predictor</a>
+            </nav>
+            <button class="menu-btn" aria-label="Toggle menu" onclick="toggleMenu()">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"></line><line x1="4" x2="20" y1="6" y2="6"></line><line x1="4" x2="20" y1="18" y2="18"></line></svg>
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Workspace -->
+    <main>
+        <div style="text-align: center; margin-bottom: 3rem;">
+            <div class="badge-purple">
+                <span class="pulse-dot"></span> Normalized Multi-Shift Model
+            </div>
+            <h1 style="margin-top: 1rem;">JEE Main <span class="gradient-text">Percentile Predictor</span> 2027</h1>
+            <p style="margin-top: 0.5rem; font-size: 1.1rem; max-width: 600px; margin-left: auto; margin-right: auto;">Calculate your NTA Score / Percentile based on your shift difficulty and expected raw score out of 300.</p>
+        </div>
+
+        <section class="grid-panel">
+            <!-- Calculator Card -->
+            <div class="card">
+                <h3 style="margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.5rem;">📊 Calculate Expected Percentile</h3>
+                
+                <form id="percentileForm" onsubmit="calculatePercentile(event)">
+                    <!-- Shift selection -->
+                    <div class="form-group">
+                        <label for="shift" class="form-label">
+                             <span class="form-number-bullet">1</span> Select your shift
+                        </label>
+                        <span class="form-desc">Difficulty differs. Choose your exact date and session.</span>
+                        <select id="shift" class="form-select" required>
+                            <option value="" disabled selected>Select your exam date &amp; shift</option>
+                            <option value="2 S1">April 2 - Shift 1</option>
+                            <option value="2 S2">April 2 - Shift 2</option>
+                            <option value="4 S1">April 4 - Shift 1</option>
+                            <option value="4 S2">April 4 - Shift 2</option>
+                            <option value="5 S1">April 5 - Shift 1</option>
+                            <option value="5 S2">April 5 - Shift 2</option>
+                            <option value="6 S1">April 6 - Shift 1</option>
+                            <option value="6 S2">April 6 - Shift 2</option>
+                            <option value="8 S2">April 8 - Shift 2</option>
+                        </select>
+                    </div>
+
+                    <!-- Marks input -->
+                    <div class="form-group">
+                        <label for="marks" class="form-label">
+                            <span class="form-number-bullet">2</span> Enter raw score
+                        </label>
+                        <span class="form-desc">Total marks out of 300 (Correct × 4 minus Wrong × 1)</span>
+                        <div class="input-container">
+                            <span class="input-icon">🎯</span>
+                            <input type="number" id="marks" class="form-input form-input-icon" placeholder="e.g., 160" min="-75" max="300" required>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn" style="margin-top: 1rem;">Predict Expected Percentile</button>
+                </form>
+            </div>
+
+            <!-- Results Card -->
+            <div id="resultsPanel" class="results-section">
+                <div class="card" style="border-color: var(--emerald);">
+                    <div class="badge-green" style="margin-bottom: 1rem;">PERCENTILE CALCULATION COMPLETE</div>
+                    
+                    <div class="percentile-glow-box">
+                        <div style="font-size: 0.8rem; text-transform: uppercase; font-weight: 700; color: var(--text-muted);">Expected NTA Percentile Score</div>
+                        <div class="percentile-glow-value" id="percentileDisplay">98.50%</div>
+                        <div id="shiftDifficulty" class="shift-difficulty-tag diff-moderate">Moderate Shift</div>
+                    </div>
+
+                    <div style="display: grid; grid-template-columns: 1fr; gap: 1rem; margin-top: 1.5rem; border-top: 1px solid var(--border-color); padding-top: 1.5rem;">
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <span style="font-size: 0.85rem; color: var(--text-muted); font-weight: 600;">Predicted All India Rank (CRL)</span>
+                            <span style="font-size: 1.15rem; font-weight: 800;" id="rankDisplay">~24,000</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(255,255,255,0.03); padding-top: 0.75rem;">
+                            <span style="font-size: 0.85rem; color: var(--text-muted); font-weight: 600;">Shift Benchmark (99%ile Score)</span>
+                            <span style="font-size: 1rem; font-weight: 700; color: var(--text-main);" id="shiftBenchmark">181 Marks</span>
+                        </div>
+                    </div>
+
+                    <div style="display: flex; flex-direction: column; gap: 0.75rem; margin-top: 2rem;">
+                        <a id="predictRankLink" href="#" class="btn" style="background: var(--primary); box-shadow: 0 4px 12px rgba(139, 92, 246, 0.25);">📊 Calculate Category Ranks →</a>
+                        <a id="predictCollegesLink" href="#" class="btn btn-secondary">🚀 View Matching Colleges</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Informational: How NTA Calculates Percentile -->
+        <section class="card" style="margin: 2rem 0;">
+            <h3 style="margin-bottom: 1.25rem;">How NTA Score/Percentile is Calculated</h3>
+            <p style="font-size: 0.9rem; line-height: 1.6; color: var(--text-muted); margin-bottom: 1.5rem;">
+                The percentile score indicates the relative performance of a candidate compared to all others who appeared in the same shift. It is NOT the raw percentage of marks obtained.
+            </p>
+            
+            <div class="method-step">
+                <h4 style="font-weight: 700; font-size: 0.95rem; color: var(--text-main); margin-bottom: 0.25rem;">Step 1: Raw Marks Calculation</h4>
+                <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">
+                    First, raw scores are computed. Every correct question adds 4 marks. Every incorrect answer deducts 1 mark. Unattempted questions yield 0 marks. The maximum possible raw score is 300.
+                </p>
+            </div>
+            
+            <div class="method-step">
+                <h4 style="font-weight: 700; font-size: 0.95rem; color: var(--text-main); margin-bottom: 0.25rem;">Step 2: Equi-Percentile Normalization</h4>
+                <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">
+                    NTA applies normalization separately for each shift. The formula is:
+                    <br>
+                    <code style="display: block; background: var(--bg-muted); border: 1px solid var(--border-color); padding: 0.75rem; border-radius: var(--radius-sm); margin: 0.5rem 0; text-align: center; font-size: 0.9rem;">
+                        Percentile = 100 × (No. of candidates in shift with Raw Score ≤ your score) / (Total candidates in shift)
+                    </code>
+                    This scale ranges from 100 down to 0, matching the exact relative position of the candidate in the shift.
+                </p>
+            </div>
+            
+            <div class="method-step">
+                <h4 style="font-weight: 700; font-size: 0.95rem; color: var(--text-main); margin-bottom: 0.25rem;">Step 3: Multi-Session Resolution</h4>
+                <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">
+                    Since candidates write in different sessions, NTA merges all session records at the end. Your final merit rank (CRL) is derived from the higher percentile score obtained between the January and April sessions.
+                </p>
+            </div>
+        </section>
+
+        <!-- Informational Shift Summary -->
+        <section class="card" style="margin: 4rem 0;">
+            <h3>Shift Difficulty Reference Guide</h3>
+            <p style="margin-top: 0.5rem; font-size: 0.9rem; margin-bottom: 1.5rem;">The difficulty level of the shift plays a major role in NTA normalization. The same marks yield a higher percentile in harder shifts.</p>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Shift</th>
+                            <th>Classification</th>
+                            <th>99% Benchmark</th>
+                            <th>95% Benchmark</th>
+                            <th>Verdict &amp; Impact</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="table-highlight">April 8 - S2</td>
+                            <td><span class="shift-difficulty-tag diff-hard" style="margin: 0;">Hardest</span></td>
+                            <td style="font-weight: 700;">165 Marks</td>
+                            <td>116 Marks</td>
+                            <td style="text-align: left; font-size: 0.8rem;">Very tough paper. Lower marks yield huge percentile jumps.</td>
+                        </tr>
+                        <tr>
+                            <td class="table-highlight">April 6 - S1</td>
+                            <td><span class="shift-difficulty-tag diff-hard" style="margin: 0;">Hard</span></td>
+                            <td style="font-weight: 700;">173 Marks</td>
+                            <td>116 Marks</td>
+                            <td style="text-align: left; font-size: 0.8rem;">Tough Math section. Generous normalization curve.</td>
+                        </tr>
+                        <tr>
+                            <td class="table-highlight">April 2 - S2</td>
+                            <td><span class="shift-difficulty-tag diff-hard" style="margin: 0;">Hard</span></td>
+                            <td style="font-weight: 700;">174 Marks</td>
+                            <td>114 Marks</td>
+                            <td style="text-align: left; font-size: 0.8rem;">Physics was moderate, Math was tough. High accuracy.</td>
+                        </tr>
+                        <tr>
+                            <td class="table-highlight">April 2 - S1</td>
+                            <td><span class="shift-difficulty-tag diff-moderate" style="margin: 0;">Moderate</span></td>
+                            <td style="font-weight: 700;">181 Marks</td>
+                            <td>131 Marks</td>
+                            <td style="text-align: left; font-size: 0.8rem;">Standard balanced paper. Reflects standard cutoffs.</td>
+                        </tr>
+                        <tr>
+                            <td class="table-highlight">April 4 - S1</td>
+                            <td><span class="shift-difficulty-tag diff-moderate" style="margin: 0;">Moderate</span></td>
+                            <td style="font-weight: 700;">184 Marks</td>
+                            <td>137 Marks</td>
+                            <td style="text-align: left; font-size: 0.8rem;">Moderate paper. Math section was slightly lengthier.</td>
+                        </tr>
+                        <tr>
+                            <td class="table-highlight">April 5 - S2</td>
+                            <td><span class="shift-difficulty-tag diff-moderate" style="margin: 0;">Moderate</span></td>
+                            <td style="font-weight: 700;">188 Marks</td>
+                            <td>133 Marks</td>
+                            <td style="text-align: left; font-size: 0.8rem;">Physics and Chemistry were easy. Math was standard.</td>
+                        </tr>
+                        <tr>
+                            <td class="table-highlight">April 4 - S2</td>
+                            <td><span class="shift-difficulty-tag diff-easy" style="margin: 0;">Easy-Mod</span></td>
+                            <td style="font-weight: 700;">189 Marks</td>
+                            <td>135 Marks</td>
+                            <td style="text-align: left; font-size: 0.8rem;">Relatively scoring paper. Math section was standard.</td>
+                        </tr>
+                        <tr>
+                            <td class="table-highlight">April 5 - S1</td>
+                            <td><span class="shift-difficulty-tag diff-easy" style="margin: 0;">Easy</span></td>
+                            <td style="font-weight: 700;">194 Marks</td>
+                            <td>134 Marks</td>
+                            <td style="text-align: left; font-size: 0.8rem;">High scoring paper. Easy questions overall. Tight margin.</td>
+                        </tr>
+                        <tr>
+                            <td class="table-highlight">April 6 - S2</td>
+                            <td><span class="shift-difficulty-tag diff-easy" style="margin: 0;">Easiest</span></td>
+                            <td style="font-weight: 700;">195 Marks</td>
+                            <td>138 Marks</td>
+                            <td style="text-align: left; font-size: 0.8rem;">Most scoring paper. Need high marks for top percentiles.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Why Marks vs Percentile Fluctuates Section -->
+        <section class="card" style="margin-top: 2.5rem;">
+            <h3 style="margin-bottom: 1rem; color: var(--text-main);">Why Marks vs Percentile Fluctuates by Shift</h3>
+            <p style="font-size: 0.9rem; line-height: 1.6; color: var(--text-muted); margin-bottom: 1.25rem;">
+                Many students wonder why scoring 180 marks yields a 99 percentile in one session, but only a 97 percentile in another. This is due to two critical variables:
+            </p>
+            <div style="display: grid; grid-template-columns: 1fr; gap: 1.5rem; margin-top: 1rem;">
+                <div style="background: var(--bg-muted); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.25rem;">
+                    <h4 style="font-weight: 700; margin-bottom: 0.5rem; color: var(--text-main);">1. Shift Difficulty Disparities</h4>
+                    <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">
+                        If a shift has an exceptionally difficult Mathematics or Physics section, the average raw score of all candidates in that shift decreases. Consequently, candidates require fewer raw marks to beat 99% of the peer group. On easy papers, the benchmark rises significantly.
+                    </p>
+                </div>
+                <div style="background: var(--bg-muted); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.25rem;">
+                    <h4 style="font-weight: 700; margin-bottom: 0.5rem; color: var(--text-main);">2. Session Size and Candidate Profile Distribution</h4>
+                    <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">
+                        NTA splits 16,00,000+ candidates randomly into multiple sessions. While NTA uses random grouping algorithms, the concentration of high-scoring coaching students can sometimes fluctuate between shifts, introducing subtle variances in the competition baseline.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="faq-section" style="margin-top: 3rem;">
+            <div class="section-header">
+                <h2>JEE Main Percentile <span class="gradient-text">FAQs</span></h2>
+                <p>Everything you need to know about the NTA normalisation and expected percentile curves.</p>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">What is the formula NTA uses for percentile score?</div>
+                <div class="faq-answer">
+                    The percentile is calculated shift-wise: <code>Percentile = 100 × (Number of candidates who appeared in the session with raw marks equal to or less than you) / (Total number of candidates in that session)</code>. Ranks are based on the final combined percentiles.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">What is the difference between percentage and percentile?</div>
+                <div class="faq-answer">
+                    Percentage is the score calculated out of the maximum marks (e.g., scoring 150/300 is 50%). Percentile represents the percentage of candidates who scored lower than or equal to you. A 99 percentile means you performed better than 99% of the candidates in that shift, regardless of your marks.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Is the percentile calculated separately for Mathematics, Physics, and Chemistry?</div>
+                <div class="faq-answer">
+                    Yes, NTA calculates and prints individual percentile scores for Math, Physics, and Chemistry, alongside the overall composite percentile. These individual percentiles are used to break ties if two candidates finish with the same overall percentile.
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-brand">
+                <a href="/" class="logo-link">
+                    <div class="logo-img">J</div>
+                    <span class="logo-text">jeerankpredictor.com</span>
+                </a>
+                <p class="footer-desc">India's most trusted educational calculator website. Helping students estimate their JEE Main and Advanced options since 2023.</p>
+                <div class="footer-contact" style="margin-top: 0.5rem;">
+                    <div class="footer-contact-item" style="font-size: 0.85rem; display: flex; align-items: center; gap: 0.5rem;">
+                        <span>📧</span>
+                        <a href="mailto:support@jeerankpredictor.com" style="color: #1f2937; text-decoration: none; font-weight: 600;">support@jeerankpredictor.com</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-links-col">
+                <div class="footer-title">Calculators</div>
+                <ul class="footer-links">
+                    <li><a href="/jee-main-rank-predictor" class="footer-link">JEE Main Rank Predictor</a></li>
+                    <li><a href="/jee-main-precentile-predictor" class="footer-link">JEE Main Percentile Predictor</a></li>
+                    <li><a href="/jee-main-college-predictor" class="footer-link">NIT/IIIT College Predictor</a></li>
+                    <li><a href="/jee-advanced-rank-predictor" class="footer-link">JEE Advanced Rank Predictor</a></li>
+                    <li><a href="/jee-advanced-college-predictor" class="footer-link">IIT College Predictor</a></li>
+                </ul>
+            </div>
+            <div class="footer-links-col">
+                <div class="footer-title">Counselling</div>
+                <ul class="footer-links">
+                    <li><a href="https://josaa.nic.in" target="_blank" rel="noopener" class="footer-link">JoSAA Portal</a></li>
+                    <li><a href="https://csab.nic.in" target="_blank" rel="noopener" class="footer-link">CSAB Board</a></li>
+                    <li><a href="https://jeemain.nta.ac.in" target="_blank" rel="noopener" class="footer-link">NTA JEE Main</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2027 jeerankpredictor.com. All rights reserved.</p>
+            <div class="footer-bottom-links">
+                <a href="#" class="footer-bottom-link">Privacy Policy</a>
+                <a href="#" class="footer-bottom-link">Terms of Service</a>
+                <a href="#" class="footer-bottom-link">Contact Us</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Mobile Bottom Navigation Bar -->
+    <nav class="mobile-nav">
+        <a href="/" class="mobile-nav-link">
+            <span class="mobile-nav-icon">🏠</span>
+            <span>Home</span>
+        </a>
+        <a href="/" class="mobile-nav-link active">
+            <span class="mobile-nav-icon">📊</span>
+            <span>Percentile</span>
+        </a>
+        <a href="/jee-main-college-predictor" class="mobile-nav-link">
+            <span class="mobile-nav-icon">🏛️</span>
+            <span>Colleges</span>
+        </a>
+        <a href="/jee-main-rank-predictor" class="mobile-nav-link">
+            <span class="mobile-nav-icon">📝</span>
+            <span>Rank</span>
+        </a>
+    </nav>
+
+    <!-- JS Logic and dataset import -->
+    <script src="assets/js/data.js"></script>
+    <script>
+        function toggleMenu() {
+            document.querySelector('header nav').classList.toggle('open');
+        }
+
+        // Shift classification details
+        const SHIFT_DIFFICULTIES = {
+            "2 S1": { label: "Moderate Shift", class: "diff-moderate", benchmark: 181 },
+            "2 S2": { label: "Hard Shift", class: "diff-hard", benchmark: 174 },
+            "4 S1": { label: "Moderate Shift", class: "diff-moderate", benchmark: 184 },
+            "4 S2": { label: "Easy-Moderate Shift", class: "diff-easy", benchmark: 189 },
+            "5 S1": { label: "Easy Shift", class: "diff-easy", benchmark: 194 },
+            "5 S2": { label: "Moderate Shift", class: "diff-moderate", benchmark: 188 },
+            "6 S1": { label: "Hard Shift", class: "diff-hard", benchmark: 173 },
+            "6 S2": { label: "Easiest Shift", class: "diff-easy", benchmark: 195 },
+            "8 S2": { label: "Hardest Shift", class: "diff-hard", benchmark: 165 }
+        };
+
+        // URL Parameters parsing
+        window.addEventListener('DOMContentLoaded', () => {
+            const params = new URLSearchParams(window.location.search);
+            const marks = params.get('marks');
+            const shift = params.get('shift');
+
+            if (marks && shift) {
+                document.getElementById('marks').value = marks;
+                document.getElementById('shift').value = shift;
+                // Auto submit form
+                document.getElementById('percentileForm').dispatchEvent(new Event('submit'));
+            }
+        });
+
+        function calculatePercentile(event) {
+            event.preventDefault();
+
+            const shift = document.getElementById('shift').value;
+            const marks = document.getElementById('marks').value;
+
+            if (!shift || !marks) return;
+
+            // 1. Predict Percentile
+            const percentile = predictPercentile(marks, shift);
+
+            // 2. Predict Rank
+            const air = predictRank(percentile);
+
+            // 3. Update Results display
+            document.getElementById('percentileDisplay').innerText = percentile.toFixed(4) + '%';
+            document.getElementById('rankDisplay').innerText = '~' + air.toLocaleString();
+            
+            // Set shift difficulty labels
+            const diffInfo = SHIFT_DIFFICULTIES[shift];
+            const diffTag = document.getElementById('shiftDifficulty');
+            diffTag.innerText = diffInfo.label;
+            diffTag.className = 'shift-difficulty-tag ' + diffInfo.class;
+
+            document.getElementById('shiftBenchmark').innerText = diffInfo.benchmark + ' Marks';
+
+            // Set link destinations
+            document.getElementById('predictRankLink').href = `/jee-main-rank-predictor?marks=${marks}&shift=${encodeURIComponent(shift)}`;
+            document.getElementById('predictCollegesLink').href = `/jee-main-college-predictor?rank=${air}&category=OPEN`;
+
+            // Toggle grid class for layout alignment
+            document.querySelector('.grid-panel').classList.add('has-results');
+
+            // Reveal Results
+            const panel = document.getElementById('resultsPanel');
+            panel.style.display = 'flex';
+
+            panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+    </script>
+<script src="assets/js/router.js"></script>
+</body>
+</html>

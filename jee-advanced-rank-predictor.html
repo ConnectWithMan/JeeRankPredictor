@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JEE Advanced Rank Predictor 2027 | Free IIT Rank Calculator</title>
+    <meta name="description" content="Calculate your expected JEE Advanced 2027 rank and Category Rank instantly. Free, no registration required, calibrated against actual JOSAA cutoffs.">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://jeerankpredictor.com/jee-advanced-rank-predictor">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://jeerankpredictor.com/jee-advanced-rank-predictor">
+    <meta property="og:title" content="JEE Advanced Rank Predictor 2027 | Free IIT Rank Calculator">
+    <meta property="og:description" content="Calculate your expected JEE Advanced 2027 rank and Category Rank instantly. Free, no registration required, calibrated against actual JOSAA cutoffs.">
+    <meta property="og:image" content="https://jeerankpredictor.com/assets/img/og-image-adv-rank.jpg">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://jeerankpredictor.com/jee-advanced-rank-predictor">
+    <meta name="twitter:title" content="JEE Advanced Rank Predictor 2027 | Free IIT Rank Calculator">
+    <meta name="twitter:description" content="Calculate your expected JEE Advanced 2027 rank and Category Rank instantly. Free, no registration required, calibrated against actual JOSAA cutoffs.">
+    <meta name="twitter:image" content="https://jeerankpredictor.com/assets/img/og-image-adv-rank.jpg">
+
+    <!-- Schema.org JSON-LD Markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "JEE Advanced Rank Predictor",
+      "url": "https://jeerankpredictor.com/jee-advanced-rank-predictor",
+      "description": "An interactive calculator to predict expected JEE Advanced aggregate score rank percent and category rankings.",
+      "applicationCategory": "EducationalApplication",
+      "operatingSystem": "All"
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What happens if I clear the aggregate cutoff but fail one subject cutoff in JEE Advanced?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "If you fail to clear the individual cutoff in even one of the three subjects (Physics, Chemistry, or Math), you will NOT be included in the rank list, regardless of how high your overall aggregate score is."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How are ties resolved in the JEE Advanced rank list?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "If two or more candidates score the same aggregate marks, the candidate with higher marks in Mathematics is awarded the higher rank. If the tie persists, the candidate with higher marks in Physics is ranked higher. If the tie still remains, both candidates are awarded the same rank."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What marks are typically needed for an IIT rank under 5,000?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "This depends heavily on the year's difficulty, but historically, a score of 45% to 50% of the total marks (approx. 160-180 marks out of 360) is required to secure a rank under 5,000, ensuring choice branches in top IITs."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2.5rem;
+            margin: 2rem 0;
+        }
+        @media (min-width: 992px) {
+            .form-grid {
+                grid-template-columns: 1.5fr 1fr;
+            }
+            .form-grid:not(.has-results) {
+                grid-template-columns: 1fr;
+                max-width: 650px;
+                margin: 2rem auto;
+            }
+        }
+        .results-box {
+            display: none;
+            flex-direction: column;
+            gap: 1.5rem;
+            animation: slideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .rank-badge {
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.15) 0%, rgba(59, 130, 246, 0.15) 100%);
+            border: 1px solid rgba(139, 92, 246, 0.3);
+            border-radius: var(--radius-md);
+            padding: 1.5rem;
+            text-align: center;
+            position: relative;
+        }
+        .rank-badge-value {
+            font-size: 2.5rem;
+            font-weight: 800;
+            font-family: var(--font-heading);
+            color: var(--primary);
+            margin: 0.25rem 0;
+            letter-spacing: -0.02em;
+        }
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.25rem;
+            margin-top: 3rem;
+        }
+        @media (min-width: 768px) {
+            .info-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        .info-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            padding: 1.25rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        .info-card-icon {
+            font-size: 1.5rem;
+            color: var(--primary);
+        }
+        .chart-bar-container {
+            width: 100%;
+            height: 10px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 9999px;
+            overflow: hidden;
+            margin-top: 0.5rem;
+            position: relative;
+        }
+        .chart-bar-fill {
+            height: 100%;
+            background: linear-gradient(to right, var(--primary), var(--emerald));
+            border-radius: 9999px;
+            width: 0%;
+            transition: width 1s ease-in-out;
+        }
+        .guide-section {
+            margin: 4rem 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-glow-purple"></div>
+    <div class="bg-glow-blue"></div>
+
+    <!-- Header Navigation -->
+    <header>
+        <div class="header-container">
+            <a href="/" class="logo-link">
+                <div class="logo-img">J</div>
+                <span class="logo-text">jeerankpredictor.com</span>
+            </a>
+            <nav>
+                <a href="/" class="nav-link">Home</a>
+                <a href="/jee-main-rank-predictor" class="nav-link">JEE Main</a>
+                <a href="/" class="nav-link active">JEE Advanced</a>
+                <a href="/jee-main-college-predictor" class="nav-link">NIT/IIIT Predictor</a>
+                <a href="/jee-advanced-college-predictor" class="nav-cta">IIT Predictor</a>
+            </nav>
+            <button class="menu-btn" aria-label="Toggle menu" onclick="toggleMenu()">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"></line><line x1="4" x2="20" y1="6" y2="6"></line><line x1="4" x2="20" y1="18" y2="18"></line></svg>
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Workspace -->
+    <main>
+        <div style="text-align: center; margin-bottom: 3rem;">
+            <div class="badge-purple">
+                <span class="pulse-dot"></span> 2027 Projections Calibrated
+            </div>
+            <h1 style="margin-top: 1rem;">JEE Advanced <span class="gradient-text">Rank Predictor</span> 2027</h1>
+            <p style="margin-top: 0.5rem; font-size: 1.1rem; max-width: 600px; margin-left: auto; margin-right: auto;">Enter your expected raw marks out of 360 and category to calculate your expected All India CRL Rank and Category Rank instantly.</p>
+        </div>
+
+        <section class="form-grid">
+            <!-- Form Card -->
+            <div class="card">
+                <h3 style="margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.5rem;">📐 Calculate Your IIT Rank</h3>
+                
+                <form id="rankForm" onsubmit="calculateAdvancedRank(event)">
+                    <!-- Marks Input -->
+                    <div class="form-group">
+                        <label for="marks" class="form-label">
+                            <span class="form-number-bullet">1</span> What is your expected score?
+                        </label>
+                        <span class="form-desc">Total cumulative score across Paper 1 and Paper 2 (out of 360)</span>
+                        <div class="input-container">
+                            <span class="input-icon">🎯</span>
+                            <input type="number" id="marks" class="form-input form-input-icon" placeholder="e.g., 180" min="0" max="360" required>
+                        </div>
+                    </div>
+
+                    <!-- Category Input -->
+                    <div class="form-group">
+                        <label for="category" class="form-label">
+                            <span class="form-number-bullet">2</span> Select your Category
+                        </label>
+                        <span class="form-desc">Required to estimate your Category Rank.</span>
+                        <select id="category" class="form-select" required>
+                            <option value="OPEN" selected>General (UR)</option>
+                            <option value="OBC-NCL">OBC-NCL</option>
+                            <option value="EWS">Gen-EWS</option>
+                            <option value="SC">SC</option>
+                            <option value="ST">ST</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" class="btn" style="margin-top: 1rem;">Predict IIT Rank</button>
+                </form>
+            </div>
+
+            <!-- Results Column -->
+            <div id="resultsColumn" class="results-box">
+                <div class="card" style="border-color: var(--primary);">
+                    <div class="badge-purple" style="margin-bottom: 1rem;">PREDICTED RANK DETAILS</div>
+                    
+                    <div class="rank-badge">
+                        <div style="font-size: 0.8rem; text-transform: uppercase; font-weight: 700; color: var(--text-muted);">Expected IIT CRL Rank</div>
+                        <div class="rank-badge-value" id="airValue">~2,700</div>
+                        <div style="font-size: 0.75rem; color: var(--text-muted);" id="airRange">Range: ~2,500 - 2,900</div>
+                    </div>
+
+                    <div style="display: grid; grid-template-columns: 1fr 1.5fr; gap: 1rem; margin-top: 1.5rem; border-top: 1px solid var(--border-color); padding-top: 1.5rem;">
+                        <div>
+                            <div style="font-size: 0.75rem; color: var(--text-muted); font-weight: 700; text-transform: uppercase;">Percent of Total</div>
+                            <div style="font-size: 1.5rem; font-weight: 800; color: var(--emerald);" id="percentValue">50.0%</div>
+                        </div>
+                        <div>
+                            <div style="font-size: 0.75rem; color: var(--text-muted); font-weight: 700; text-transform: uppercase;" id="categoryRankTitle">OBC Rank</div>
+                            <div style="font-size: 1.5rem; font-weight: 800; color: var(--secondary);" id="categoryRankValue">~750</div>
+                        </div>
+                    </div>
+
+                    <div style="margin-top: 1.5rem;">
+                        <div style="display: flex; justify-content: space-between; font-size: 0.75rem; font-weight: 700;">
+                            <span>Score curve placement</span>
+                            <span id="percentileText">Marks: 180 / 360</span>
+                        </div>
+                        <div class="chart-bar-container">
+                            <div id="chartBar" class="chart-bar-fill"></div>
+                        </div>
+                    </div>
+
+                    <!-- Call to action linked directly to college predictor -->
+                    <a id="findCollegesBtn" href="#" class="btn" style="background: var(--emerald); box-shadow: 0 4px 12px rgba(16, 185, 129, 0.25); margin-top: 2rem;">🚀 Find My IIT College Options →</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Counselling Guide section -->
+        <section class="card guide-section">
+            <h3 style="margin-bottom: 1rem;">JEE Advanced Marks vs. Rank Trends</h3>
+            <p style="font-size: 0.9rem; line-height: 1.6; color: var(--text-muted); margin-bottom: 1.25rem;">
+                Unlike JEE Main, where percentiles are calculated shift-wise, JEE Advanced is evaluated on absolute score totals. Since paper difficulty varies significantly each year, the marks required to clear cutoffs and secure top ranks fluctuate.
+            </p>
+            <div style="display: grid; grid-template-columns: 1fr; gap: 1.5rem;">
+                <div style="background: var(--bg-muted); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.25rem;">
+                    <h4 style="font-weight: 700; margin-bottom: 0.5rem; color: var(--text-main);">1. Cumulative Score Thresholds</h4>
+                    <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">
+                        To be included in the Common Rank List (CRL), candidates must satisfy both aggregate score requirements (typically around 8-10% of total marks for General) and individual subject cutoffs in Physics, Chemistry, and Mathematics (typically 4-5% of subject totals).
+                    </p>
+                </div>
+                <div style="background: var(--bg-muted); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.25rem;">
+                    <h4 style="font-weight: 700; margin-bottom: 0.5rem; color: var(--text-main);">2. IIT Preparatory Courses</h4>
+                    <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">
+                        For vacant reserved category seats (SC, ST, PwD), IITs conduct preparatory courses. Candidates who do not meet the direct qualification cutoffs but clear relaxed bounds are eligible for a 1-year preparatory training program at designated IITs, after which they are admitted directly into their undergraduate course.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Information details -->
+        <section class="info-grid">
+            <div class="info-card">
+                <div class="info-card-icon">⚡</div>
+                <h3>IIT Admission chances</h3>
+                <p style="font-size: 0.8rem; line-height: 1.5; margin-top: 0.25rem;">Our systems map closing rank indicators to JOSAA Round 6 records, showing you realistic opportunities for every IIT branch.</p>
+            </div>
+            <div class="info-card">
+                <div class="info-card-icon">🔒</div>
+                <h3>Fully Private</h3>
+                <p style="font-size: 0.8rem; line-height: 1.5; margin-top: 0.25rem;">We do not ask for your name, phone number, email, or coaching center. Use the tool 100% anonymously without getting spam calls.</p>
+            </div>
+            <div class="info-card">
+                <div class="info-card-icon">🎯</div>
+                <h3>Integrated parameters</h3>
+                <p style="font-size: 0.8rem; line-height: 1.5; margin-top: 0.25rem;">Ranks are linked directly to IIT predictor query strings, letting you filter branches and campuses with one click.</p>
+            </div>
+        </section>
+
+        <!-- How is JEE Advanced Rank Calculated Section -->
+        <section class="card" style="margin-top: 2.5rem;">
+            <h3 style="margin-bottom: 1rem; color: var(--text-main);">How is JEE Advanced Rank Calculated?</h3>
+            <p style="font-size: 0.9rem; line-height: 1.6; color: var(--text-muted); margin-bottom: 1.25rem;">
+                Unlike JEE Main, which normalizes scores using equi-percentile mathematical curves, JEE Advanced rankings are determined by raw aggregate marks scored across Paper 1 and Paper 2.
+            </p>
+            <h4 style="font-weight: 700; margin-bottom: 0.5rem; color: var(--text-main);">1. Aggregate Score and Subject-Wise Cutoffs</h4>
+            <p style="font-size: 0.9rem; line-height: 1.6; color: var(--text-muted); margin-bottom: 1rem;">
+                To qualify for rank allocation, a candidate must satisfy two conditions simultaneously:
+            </p>
+            <ul style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.6; padding-left: 1.25rem; margin-bottom: 1.5rem;">
+                <li style="margin-bottom: 0.5rem;"><strong>Subject-wise Cutoff:</strong> You must score a minimum percentage of marks in Physics, Chemistry, and Mathematics individually. This is usually around 4% to 5% of the total marks in each subject.</li>
+                <li style="margin-bottom: 0.5rem;"><strong>Aggregate Cutoff:</strong> You must clear a minimum aggregate marks percentage across both papers combined (typically around 8% to 10% for the OPEN category, and lower for OBC, SC, ST, EWS).</li>
+            </ul>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="faq-section" style="margin-top: 3rem;">
+            <div class="section-header">
+                <h2>JEE Advanced Rank <span class="gradient-text">FAQs</span></h2>
+                <p>Answers to common questions about aggregate cutoffs, tie-breakers, and category listings.</p>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">What happens if I clear the aggregate cutoff but fail one subject cutoff in JEE Advanced?</div>
+                <div class="faq-answer">
+                    If you fail to clear the individual cutoff in even one of the three subjects (Physics, Chemistry, or Math), you will NOT be included in the rank list, regardless of how high your overall aggregate score is.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">How are ties resolved in the JEE Advanced rank list?</div>
+                <div class="faq-answer">
+                    If two or more candidates score the same aggregate marks, the candidate with higher marks in Mathematics is awarded the higher rank. If the tie persists, the candidate with higher marks in Physics is ranked higher. If the tie still remains, both candidates are awarded the same rank.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">What marks are typically needed for an IIT rank under 5,000?</div>
+                <div class="faq-answer">
+                    This depends heavily on the year's difficulty, but historically, a score of 45% to 50% of the total marks (approx. 160-180 marks out of 360) is required to secure a rank under 5,000, ensuring choice branches in top IITs.
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-brand">
+                <a href="/" class="logo-link">
+                    <div class="logo-img">J</div>
+                    <span class="logo-text">jeerankpredictor.com</span>
+                </a>
+                <p class="footer-desc">India's most trusted educational calculator website. Helping students estimate their JEE Main and Advanced options since 2023.</p>
+                <div class="footer-contact" style="margin-top: 0.5rem;">
+                    <div class="footer-contact-item" style="font-size: 0.85rem; display: flex; align-items: center; gap: 0.5rem;">
+                        <span>📧</span>
+                        <a href="mailto:support@jeerankpredictor.com" style="color: #1f2937; text-decoration: none; font-weight: 600;">support@jeerankpredictor.com</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-links-col">
+                <div class="footer-title">Calculators</div>
+                <ul class="footer-links">
+                    <li><a href="/jee-main-rank-predictor" class="footer-link">JEE Main Rank Predictor</a></li>
+                    <li><a href="/jee-main-precentile-predictor" class="footer-link">JEE Main Percentile Predictor</a></li>
+                    <li><a href="/jee-main-college-predictor" class="footer-link">NIT/IIIT College Predictor</a></li>
+                    <li><a href="/jee-advanced-rank-predictor" class="footer-link">JEE Advanced Rank Predictor</a></li>
+                    <li><a href="/jee-advanced-college-predictor" class="footer-link">IIT College Predictor</a></li>
+                </ul>
+            </div>
+            <div class="footer-links-col">
+                <div class="footer-title">Counselling</div>
+                <ul class="footer-links">
+                    <li><a href="https://josaa.nic.in" target="_blank" rel="noopener" class="footer-link">JoSAA Portal</a></li>
+                    <li><a href="https://csab.nic.in" target="_blank" rel="noopener" class="footer-link">CSAB Board</a></li>
+                    <li><a href="https://jeemain.nta.ac.in" target="_blank" rel="noopener" class="footer-link">NTA JEE Main</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2027 jeerankpredictor.com. All rights reserved.</p>
+            <div class="footer-bottom-links">
+                <a href="#" class="footer-bottom-link">Privacy Policy</a>
+                <a href="#" class="footer-bottom-link">Terms of Service</a>
+                <a href="#" class="footer-bottom-link">Contact Us</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Mobile Bottom Navigation Bar -->
+    <nav class="mobile-nav">
+        <a href="/" class="mobile-nav-link">
+            <span class="mobile-nav-icon">🏠</span>
+            <span>Home</span>
+        </a>
+        <a href="/jee-main-precentile-predictor" class="mobile-nav-link">
+            <span class="mobile-nav-icon">📊</span>
+            <span>Percentile</span>
+        </a>
+        <a href="/jee-advanced-college-predictor" class="mobile-nav-link">
+            <span class="mobile-nav-icon">🏛️</span>
+            <span>Colleges</span>
+        </a>
+        <a href="/" class="mobile-nav-link active">
+            <span class="mobile-nav-icon">📐</span>
+            <span>Rank</span>
+        </a>
+    </nav>
+
+    <!-- JS Logic and dataset import -->
+    <script src="assets/js/data.js"></script>
+    <script>
+        function toggleMenu() {
+            document.querySelector('header nav').classList.toggle('open');
+        }
+
+        // URL Parameters parsing
+        window.addEventListener('DOMContentLoaded', () => {
+            const params = new URLSearchParams(window.location.search);
+            const marks = params.get('marks');
+            const category = params.get('category');
+
+            if (marks) {
+                document.getElementById('marks').value = marks;
+                if (category) {
+                    document.getElementById('category').value = category;
+                }
+                // Auto submit form
+                document.getElementById('rankForm').dispatchEvent(new Event('submit'));
+            }
+        });
+
+        function calculateAdvancedRank(event) {
+            event.preventDefault();
+            
+            const marks = document.getElementById('marks').value;
+            const category = document.getElementById('category').value;
+
+            if (!marks) return;
+
+            // 1. Predict CRL Rank
+            const air = predictAdvancedRank(marks);
+            
+            // 2. Category Ranks
+            const categoryRanks = predictCategoryRanks(air);
+            const categoryRank = categoryRanks[category];
+
+            // 3. Update UI
+            const percent = ((marks / 360) * 100).toFixed(1);
+            document.getElementById('percentValue').innerText = percent + '%';
+            document.getElementById('airValue').innerText = air.toLocaleString();
+            
+            // Rank Range calculation
+            const margin = Math.max(5, Math.round(air * 0.07));
+            const rangeMin = Math.max(1, air - margin);
+            const rangeMax = air + margin;
+            document.getElementById('airRange').innerText = 'Range: ~' + rangeMin.toLocaleString() + ' - ' + rangeMax.toLocaleString();
+
+            // Set category title and rank
+            const catTitles = {
+                "OPEN": "General Rank",
+                "OBC-NCL": "OBC-NCL Rank",
+                "EWS": "EWS Rank",
+                "SC": "SC Rank",
+                "ST": "ST Rank"
+            };
+            document.getElementById('categoryRankTitle').innerText = catTitles[category];
+            document.getElementById('categoryRankValue').innerText = '~' + categoryRank.toLocaleString();
+
+            // Set placement chart bar
+            document.getElementById('chartBar').style.width = percent + '%';
+            document.getElementById('percentileText').innerText = 'Score: ' + marks + ' / 360 marks';
+
+            // Configure direct link to college predictor with params
+            const findCollegesBtn = document.getElementById('findCollegesBtn');
+            findCollegesBtn.href = `/jee-advanced-college-predictor?rank=${categoryRank}&category=${category}`;
+
+            // Add results class for alignment centering
+            document.querySelector('.form-grid').classList.add('has-results');
+
+            // Show results
+            const results = document.getElementById('resultsColumn');
+            results.style.display = 'flex';
+            
+            // Smooth scroll to results
+            results.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+    </script>
+<script src="assets/js/router.js"></script>
+</body>
+</html>

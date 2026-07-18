@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JEE Advanced College Predictor 2027 | Free JOSAA IIT Predictor</title>
+    <meta name="description" content="Predict your admission chances in IITs based on your JEE Advanced rank. Free college predictor matching official JoSAA Round 6 cutoffs.">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://jeerankpredictor.com/jee-advanced-college-predictor">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://jeerankpredictor.com/jee-advanced-college-predictor">
+    <meta property="og:title" content="JEE Advanced College Predictor 2027 | Free JOSAA IIT Predictor">
+    <meta property="og:description" content="Predict your admission chances in IITs based on your JEE Advanced rank. Free college predictor matching official JoSAA Round 6 cutoffs.">
+    <meta property="og:image" content="https://jeerankpredictor.com/assets/img/og-image-adv-college.jpg">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://jeerankpredictor.com/jee-advanced-college-predictor">
+    <meta name="twitter:title" content="JEE Advanced College Predictor 2027 | Free JOSAA IIT Predictor">
+    <meta name="twitter:description" content="Predict your admission chances in IITs based on your JEE Advanced rank. Free college predictor matching official JoSAA Round 6 cutoffs.">
+    <meta name="twitter:image" content="https://jeerankpredictor.com/assets/img/og-image-adv-college.jpg">
+
+    <!-- Schema.org JSON-LD Markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "JEE Advanced IIT Predictor",
+      "url": "https://jeerankpredictor.com/jee-advanced-college-predictor",
+      "description": "An interactive search tool to predict admission outcomes in IITs using JOSAA historical rank criteria.",
+      "applicationCategory": "EducationalApplication",
+      "operatingSystem": "All"
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What are preparatory courses at IITs?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "If seats reserved for SC, ST, or PwD candidates remain vacant after all rounds of allocation, IITs fill them with candidates from those categories who cleared relaxed score margins. These candidates undergo a one-year preparatory course at an IIT. Upon passing this program, they are registered directly into the first year of their regular B.Tech course."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How does the Female Supernumerary Quota work at IITs?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "To improve gender balance, additional seats (usually 20%) are created at each IIT specifically for female candidates. This ensures that female candidates compete in a separate female-only merit pool if they are not allocated seats in the gender-neutral pool, resulting in significantly relaxed cutoffs."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Are IIT seats filled in CSAB Special Rounds?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. CSAB special rounds are only conducted for NITs, IIITs, and GFTIs. Any seat in an IIT that remains vacant after the final round of JoSAA counselling cannot be filled and is lapsed."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        .college-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2.5rem;
+            margin: 2rem 0;
+        }
+        @media (min-width: 992px) {
+            .college-grid {
+                grid-template-columns: 1.25fr 2.25fr;
+            }
+            .college-grid:not(.has-results) {
+                grid-template-columns: 1fr;
+                max-width: 600px;
+                margin: 2rem auto;
+            }
+        }
+        .filter-badge-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .filter-badge {
+            padding: 0.35rem 0.85rem;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border-color);
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .filter-badge.active {
+            background: var(--primary);
+            border-color: var(--primary);
+            color: #fff;
+            box-shadow: 0 0 10px rgba(139, 92, 246, 0.2);
+        }
+        .chance-high {
+            background: rgba(16, 185, 129, 0.15);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            color: #34d399;
+            padding: 0.25rem 0.5rem;
+            border-radius: var(--radius-sm);
+            font-weight: 700;
+            font-size: 0.75rem;
+        }
+        .chance-medium {
+            background: rgba(245, 158, 11, 0.15);
+            border: 1px solid rgba(245, 158, 11, 0.3);
+            color: #fbbf24;
+            padding: 0.25rem 0.5rem;
+            border-radius: var(--radius-sm);
+            font-weight: 700;
+            font-size: 0.75rem;
+        }
+        .chance-low {
+            background: rgba(59, 130, 246, 0.15);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            color: #60a5fa;
+            padding: 0.25rem 0.5rem;
+            border-radius: var(--radius-sm);
+            font-weight: 700;
+            font-size: 0.75rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-glow-purple"></div>
+    <div class="bg-glow-blue"></div>
+
+    <!-- Header Navigation -->
+    <header>
+        <div class="header-container">
+            <a href="/" class="logo-link">
+                <div class="logo-img">J</div>
+                <span class="logo-text">jeerankpredictor.com</span>
+            </a>
+            <nav>
+                <a href="/" class="nav-link">Home</a>
+                <a href="/jee-main-rank-predictor" class="nav-link">JEE Main</a>
+                <a href="/jee-advanced-rank-predictor" class="nav-link">JEE Advanced</a>
+                <a href="/jee-main-college-predictor" class="nav-link">NIT/IIIT Predictor</a>
+                <a href="/" class="nav-cta active">IIT Predictor</a>
+            </nav>
+            <button class="menu-btn" aria-label="Toggle menu" onclick="toggleMenu()">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"></line><line x1="4" x2="20" y1="6" y2="6"></line><line x1="4" x2="20" y1="18" y2="18"></line></svg>
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Workspace -->
+    <main>
+        <div style="text-align: center; margin-bottom: 3rem;">
+            <div class="badge-purple">
+                <span class="pulse-dot"></span> JOSAA Official IIT Cutoffs Active
+            </div>
+            <h1 style="margin-top: 1rem;">JEE Advanced <span class="gradient-text">IIT Predictor</span> 2027</h1>
+            <p style="margin-top: 0.5rem; font-size: 1.1rem; max-width: 650px; margin-left: auto; margin-right: auto;">Discover which Indian Institutes of Technology (IITs) you qualify for based on your JEE Advanced category rank.</p>
+        </div>
+
+        <section class="college-grid">
+            <!-- Parameters Card -->
+            <div class="card" style="height: fit-content;">
+                <h3 style="margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.5rem;">🏛️ Enter Your Details</h3>
+                
+                <form id="predictorForm" onsubmit="predict(event)">
+                    <!-- Rank Input -->
+                    <div class="form-group">
+                        <label for="rank" class="form-label">
+                            <span class="form-number-bullet">1</span> Enter Your IIT Rank
+                        </label>
+                        <span class="form-desc">Provide your category rank if selecting SC/ST/OBC/EWS category, else enter CRL rank.</span>
+                        <div class="input-container">
+                            <span class="input-icon">🏆</span>
+                            <input type="number" id="rank" class="form-input form-input-icon" placeholder="e.g., 2500" min="1" required>
+                        </div>
+                    </div>
+
+                    <!-- Category Input -->
+                    <div class="form-group">
+                        <label for="category" class="form-label">
+                            <span class="form-number-bullet">2</span> Select Category
+                        </label>
+                        <span class="form-desc">Estimates chances matching selected quota cutoff.</span>
+                        <select id="category" class="form-select" required>
+                            <option value="OPEN" selected>General (OPEN)</option>
+                            <option value="OBC-NCL">OBC-NCL</option>
+                            <option value="EWS">Gen-EWS</option>
+                            <option value="SC">SC</option>
+                            <option value="ST">ST</option>
+                        </select>
+                    </div>
+
+                    <!-- Info Alert -->
+                    <div style="background: rgba(37, 99, 235, 0.05); border: 1px solid rgba(37, 99, 235, 0.15); border-radius: var(--radius-md); padding: 1rem; font-size: 0.75rem; color: var(--text-muted); line-height: 1.4; margin-bottom: 1rem;">
+                        <strong>ℹ️ Quota Note:</strong> IITs allocate seats solely on an All India (AI) basis. There is no Home State (HS) or Other State (OS) quota in JoSAA for IIT campuses.
+                    </div>
+
+                    <button type="submit" class="btn">Find Qualifying IITs</button>
+                </form>
+            </div>
+
+            <!-- Results Panel -->
+            <div id="resultsCard" class="card" style="display: none;">
+                <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; margin-bottom: 2rem;">
+                    <div>
+                        <h3 id="resultsTitle">Matching IIT Admissions</h3>
+                        <p style="font-size: 0.8rem; margin-top: 0.25rem;" id="resultsCount">Found 12 matching options</p>
+                    </div>
+                    <div class="badge-green">JOSAA IIT CODES</div>
+                </div>
+
+                <!-- Filters -->
+                <div style="margin-bottom: 1.5rem;">
+                    <div style="font-size: 0.75rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase; margin-bottom: 0.5rem;">Branch Filter</div>
+                    <div class="filter-badge-row" id="branchFilters">
+                        <span class="filter-badge active" data-branch="All">All Branches</span>
+                        <span class="filter-badge" data-branch="Computer Science">CSE</span>
+                        <span class="filter-badge" data-branch="Electronics">ECE</span>
+                        <span class="filter-badge" data-branch="Electrical">EE</span>
+                        <span class="filter-badge" data-branch="Mechanical">ME</span>
+                    </div>
+                </div>
+
+                <!-- Results Table -->
+                <div class="table-container">
+                    <table id="collegesTable">
+                        <thead>
+                            <tr>
+                                <th style="text-align: left;">IIT Institute</th>
+                                <th>Branch</th>
+                                <th>Quota</th>
+                                <th>Cutoff CRL</th>
+                                <th>Admission Chance</th>
+                            </tr>
+                        </thead>
+                        <tbody id="resultsBody">
+                            <!-- Injected dynamically -->
+                        </tbody>
+                    </table>
+                </div>
+
+                <div id="noResults" style="display: none; text-align: center; padding: 3rem 1rem;">
+                    <div style="font-size: 2.5rem; margin-bottom: 1rem;">🔍</div>
+                    <h4>No Matching IIT Options Found</h4>
+                    <p style="font-size: 0.85rem; max-width: 320px; margin: 0.5rem auto 0;">Your rank is higher than the closing ranks of our indexed IIT courses. Try entering a different rank or checking newer IIT additions.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Informational counseling details -->
+        <section class="card" style="margin: 4rem 0;">
+            <h3 style="margin-bottom: 1rem;">Female Supernumerary Seats &amp; Seat Locking</h3>
+            <p style="font-size: 0.9rem; line-height: 1.6; color: var(--text-muted); margin-bottom: 1.25rem;">
+                IIT admissions in JoSAA contain special provisions to improve student diversity and help candidates manage their choice listings.
+            </p>
+            <div style="display: grid; grid-template-columns: 1fr; gap: 1.5rem;">
+                <div style="background: var(--bg-muted); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.25rem;">
+                    <h4 style="font-weight: 700; margin-bottom: 0.5rem; color: var(--text-main);">Supernumerary Female Pool</h4>
+                    <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">
+                        To increase female enrollment to at least 20%, IITs allocate additional supernumerary seats specifically for female candidates. The cutoffs for the female pool are significantly more relaxed compared to the gender-neutral pool. Female candidates are automatically evaluated for both pools.
+                    </p>
+                </div>
+                <div style="background: var(--bg-muted); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.25rem;">
+                    <h4 style="font-weight: 700; margin-bottom: 0.5rem; color: var(--text-main);">Freeze, Float, and Slide Options</h4>
+                    <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">
+                        Once a seat is allotted in any JoSAA round, you must choose one of three options:
+                        <br>
+                        • <strong>Freeze:</strong> Accept the allotted seat and lock it (you will not participate in subsequent rounds).
+                        <br>
+                        • <strong>Float:</strong> Accept the seat but remain open to joining a higher preference course in *any* institute.
+                        <br>
+                        • <strong>Slide:</strong> Accept the seat but remain open to joining a higher preference course in the *same* institute.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Admissions & Campus Choices Section -->
+        <section class="card" style="margin-top: 2.5rem;">
+            <h3 style="margin-bottom: 1rem; color: var(--text-main);">Admissions &amp; Campus Choices at IITs</h3>
+            <p style="font-size: 0.9rem; line-height: 1.6; color: var(--text-muted); margin-bottom: 1.25rem;">
+                Securing a seat in the Indian Institutes of Technology (IITs) is the culmination of clearing the JEE Advanced. Because IITs are elite centrally funded institutes, JoSAA administers their seat allocation with strict national policies.
+            </p>
+            <div style="display: grid; grid-template-columns: 1fr; gap: 1.5rem; margin-top: 1rem;">
+                <div style="background: var(--bg-muted); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.25rem;">
+                    <h4 style="font-weight: 700; margin-bottom: 0.5rem; color: var(--text-main);">IIT Quota Allocation Policy</h4>
+                    <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">
+                        Unlike NITs and IIITs, which have Home State (HS) quotas, IITs allocate seats solely on an **All India (AI) Quota** basis. This means there are no regional state reservations. Every student competing for an IIT seat faces the same nationwide merit-based threshold, regardless of the state they reside in.
+                    </p>
+                </div>
+                <div style="background: var(--bg-muted); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.25rem;">
+                    <h4 style="font-weight: 700; margin-bottom: 0.5rem; color: var(--text-main);">Branch Changes and Preparatory Listings</h4>
+                    <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">
+                        While some IITs allow a branch change at the end of the first year based on CGPA, several top IITs (like IIT Bombay, IIT Delhi, IIT Madras) have restricted or completely phased out branch changes to reduce student stress. Hence, choosing the right branch during counselling is vital.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="faq-section" style="margin-top: 3rem;">
+            <div class="section-header">
+                <h2>IIT Predictor <span class="gradient-text">FAQs</span></h2>
+                <p>Answers to common questions about female supernumerary seats, preparatory courses, and JOSAA seat allocation.</p>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">What are preparatory courses at IITs?</div>
+                <div class="faq-answer">
+                    If seats reserved for SC, ST, or PwD candidates remain vacant after all rounds of allocation, IITs fill them with candidates from those categories who cleared relaxed score margins. These candidates undergo a one-year preparatory course at an IIT. Upon passing this program, they are registered directly into the first year of their regular B.Tech course.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">How does the Female Supernumerary Quota work at IITs?</div>
+                <div class="faq-answer">
+                    To improve gender balance, additional seats (usually 20%) are created at each IIT specifically for female candidates. This ensures that female candidates compete in a separate female-only merit pool if they are not allocated seats in the gender-neutral pool, resulting in significantly relaxed cutoffs.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Are IIT seats filled in CSAB Special Rounds?</div>
+                <div class="faq-answer">
+                    No. CSAB special rounds are only conducted for NITs, IIITs, and GFTIs. Any seat in an IIT that remains vacant after the final round of JoSAA counselling cannot be filled and is lapsed.
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-brand">
+                <a href="/" class="logo-link">
+                    <div class="logo-img">J</div>
+                    <span class="logo-text">jeerankpredictor.com</span>
+                </a>
+                <p class="footer-desc">India's most trusted educational calculator website. Helping students estimate their JEE Main and Advanced options since 2023.</p>
+                <div class="footer-contact" style="margin-top: 0.5rem;">
+                    <div class="footer-contact-item" style="font-size: 0.85rem; display: flex; align-items: center; gap: 0.5rem;">
+                        <span>📧</span>
+                        <a href="mailto:support@jeerankpredictor.com" style="color: #1f2937; text-decoration: none; font-weight: 600;">support@jeerankpredictor.com</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-links-col">
+                <div class="footer-title">Calculators</div>
+                <ul class="footer-links">
+                    <li><a href="/jee-main-rank-predictor" class="footer-link">JEE Main Rank Predictor</a></li>
+                    <li><a href="/jee-main-precentile-predictor" class="footer-link">JEE Main Percentile Predictor</a></li>
+                    <li><a href="/jee-main-college-predictor" class="footer-link">NIT/IIIT College Predictor</a></li>
+                    <li><a href="/jee-advanced-rank-predictor" class="footer-link">JEE Advanced Rank Predictor</a></li>
+                    <li><a href="/jee-advanced-college-predictor" class="footer-link">IIT College Predictor</a></li>
+                </ul>
+            </div>
+            <div class="footer-links-col">
+                <div class="footer-title">Counselling</div>
+                <ul class="footer-links">
+                    <li><a href="https://josaa.nic.in" target="_blank" rel="noopener" class="footer-link">JoSAA Portal</a></li>
+                    <li><a href="https://csab.nic.in" target="_blank" rel="noopener" class="footer-link">CSAB Board</a></li>
+                    <li><a href="https://jeemain.nta.ac.in" target="_blank" rel="noopener" class="footer-link">NTA JEE Main</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2027 jeerankpredictor.com. All rights reserved.</p>
+            <div class="footer-bottom-links">
+                <a href="#" class="footer-bottom-link">Privacy Policy</a>
+                <a href="#" class="footer-bottom-link">Terms of Service</a>
+                <a href="#" class="footer-bottom-link">Contact Us</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Mobile Bottom Navigation Bar -->
+    <nav class="mobile-nav">
+        <a href="/" class="mobile-nav-link">
+            <span class="mobile-nav-icon">🏠</span>
+            <span>Home</span>
+        </a>
+        <a href="/jee-main-precentile-predictor" class="mobile-nav-link">
+            <span class="mobile-nav-icon">📊</span>
+            <span>Percentile</span>
+        </a>
+        <a href="/jee-advanced-college-predictor" class="mobile-nav-link active">
+            <span class="mobile-nav-icon">🏛️</span>
+            <span>Colleges</span>
+        </a>
+        <a href="/jee-advanced-rank-predictor" class="mobile-nav-link">
+            <span class="mobile-nav-icon">📐</span>
+            <span>Rank</span>
+        </a>
+    </nav>
+
+    <!-- JS Logic and dataset import -->
+    <script src="assets/js/data.js"></script>
+    <script>
+        function toggleMenu() {
+            document.querySelector('header nav').classList.toggle('open');
+        }
+
+        // Filters State
+        let currentBranchFilter = "All";
+        let activeRank = 0;
+        let activeCategory = "OPEN";
+
+        // URL Parameters parsing
+        window.addEventListener('DOMContentLoaded', () => {
+            const params = new URLSearchParams(window.location.search);
+            const rank = params.get('rank');
+            const category = params.get('category');
+
+            if (rank) {
+                document.getElementById('rank').value = rank;
+                if (category) {
+                    document.getElementById('category').value = category;
+                }
+                // Auto submit form
+                document.getElementById('predictorForm').dispatchEvent(new Event('submit'));
+            }
+        });
+
+        // Setup filter badge click listeners
+        document.getElementById('branchFilters').addEventListener('click', (e) => {
+            if (e.target.classList.contains('filter-badge')) {
+                document.querySelectorAll('#branchFilters .filter-badge').forEach(b => b.classList.remove('active'));
+                e.target.classList.add('active');
+                currentBranchFilter = e.target.getAttribute('data-branch');
+                renderResults();
+            }
+        });
+
+        function predict(event) {
+            event.preventDefault();
+            
+            activeRank = document.getElementById('rank').value;
+            activeCategory = document.getElementById('category').value;
+
+            if (!activeRank) return;
+
+            renderResults();
+            
+            // Toggle grid class for layout alignment
+            document.querySelector('.college-grid').classList.add('has-results');
+
+            // Show Card
+            const card = document.getElementById('resultsCard');
+            card.style.display = 'block';
+
+            card.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+
+        function renderResults() {
+            const results = predictIITColleges(activeRank, activeCategory, "Gender-Neutral", currentBranchFilter);
+            const tbody = document.getElementById('resultsBody');
+            const table = document.getElementById('collegesTable');
+            const noResults = document.getElementById('noResults');
+            
+            tbody.innerHTML = '';
+            
+            if (results.length === 0) {
+                table.style.display = 'none';
+                noResults.style.display = 'block';
+                document.getElementById('resultsCount').innerText = 'Found 0 options';
+                return;
+            }
+
+            table.style.display = 'table';
+            noResults.style.display = 'none';
+            document.getElementById('resultsCount').innerText = `Found ${results.length} matching options`;
+
+            results.forEach(item => {
+                const tr = document.createElement('tr');
+                
+                tr.innerHTML = `
+                    <td class="table-highlight" style="text-align: left;">${item.college}</td>
+                    <td>${item.branch}</td>
+                    <td><span class="badge-purple" style="font-size: 0.65rem; padding: 0.15rem 0.4rem;">${item.quota}</span></td>
+                    <td style="font-family: monospace; font-weight: 600;">${item.closingRank.toLocaleString()}</td>
+                    <td><span class="${item.chanceClass}">${item.chance}</span></td>
+                `;
+                tbody.appendChild(tr);
+            });
+        }
+    </script>
+<script src="assets/js/router.js"></script>
+</body>
+</html>

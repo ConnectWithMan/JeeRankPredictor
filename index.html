@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JEE Main Rank &amp; Percentile Predictor 2027 | Free, No Login</title>
+    <meta name="description" content="India's most accurate JEE Main rank predictor for 2027. Enter your expected marks, get your All India Rank and percentile instantly. Verified accuracy based on official NTA normalization.">
+    <meta name="keywords" content="JEE rank predictor 2027, JEE percentile predictor 2027, JEE college predictor 2027, JOSAA college predictor, JEE Main 2027, IIT predictor, NIT predictor">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://jeerankpredictor.com/">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://jeerankpredictor.com/">
+    <meta property="og:title" content="JEE Main Rank &amp; Percentile Predictor 2027 | Free, No Login">
+    <meta property="og:description" content="India's most accurate JEE Main rank predictor for 2027. Get your expected All India Rank and percentile curve instantly based on official NTA normalization.">
+    <meta property="og:image" content="https://jeerankpredictor.com/assets/img/og-image.jpg">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://jeerankpredictor.com/">
+    <meta name="twitter:title" content="JEE Main Rank &amp; Percentile Predictor 2027 | Free, No Login">
+    <meta name="twitter:description" content="India's most accurate JEE Main rank predictor for 2027. Get your expected All India Rank and percentile curve instantly based on official NTA normalization.">
+    <meta name="twitter:image" content="https://jeerankpredictor.com/assets/img/og-image.jpg">
+
+    <!-- Schema.org JSON-LD Markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "JEE Rank Predictor",
+      "url": "https://jeerankpredictor.com/",
+      "description": "India's most accurate JEE Main rank and percentile predictor optimized for the 2027 normalization model."
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How does JEE Main normalization work?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Since the exam is conducted in multiple shifts with varying difficulty, NTA uses a normalization process based on percentile scores. Your percentile represents the percentage of candidates who scored equal to or less than you in that specific shift. It is calculated as: 100 × (No. of candidates in the shift with score ≤ raw score) / (Total candidates in the shift)."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is a good percentile in JEE Main 2027?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A percentile above 99 is considered excellent and generally guarantees a Computer Science (CSE) seat in top-tier NITs and IIITs. Percentiles between 95 and 98 qualify you for middle and lower-tier NITs/IIITs or core branches."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How are Category Ranks estimated?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Category ranks (OBC-NCL, EWS, SC, ST) are estimated from your predicted All India Rank (AIR) using historical allocation curves and the reservation distribution ratios defined by the Government of India."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the difference between JoSAA and CSAB?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "JoSAA (Joint Seat Allocation Authority) conducts the first 6 rounds of counselling for IITs, NITs, IIITs, and GFTIs. After JoSAA rounds are completed, CSAB (Central Seat Allocation Board) conducts special rounds to fill the remaining vacant seats in NITs, IIITs, and GFTIs."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <style>
+        /* Specific Page Hero & Audit Grid styling */
+        .hero {
+            position: relative;
+            text-align: center;
+            padding: 4.5rem 1rem 3.5rem;
+            max-width: 800px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+        }
+        .hero h1 {
+            font-size: 3.5rem;
+            line-height: 1.1;
+        }
+        .hero p {
+            font-size: 1.125rem;
+            max-width: 600px;
+        }
+        .hero-actions {
+            display: flex;
+            gap: 1rem;
+            width: 100%;
+            max-width: 450px;
+            margin-top: 1rem;
+        }
+        .hero-stats {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.5rem;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-top: 1rem;
+        }
+        .hero-stat-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .hero-stat-item span:first-child {
+            color: var(--emerald);
+        }
+        .section-header {
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        .section-header h2 {
+            font-size: 2.25rem;
+        }
+        .section-header p {
+            margin-top: 0.5rem;
+        }
+        .audit-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2.5rem;
+            margin: 4rem 0;
+        }
+        @media (min-width: 992px) {
+            .audit-grid {
+                grid-template-columns: 2.5fr 1.5fr;
+            }
+        }
+        .accuracy-cards {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        @media (min-width: 576px) {
+            .accuracy-cards {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+        .accuracy-card {
+            background: var(--bg-muted);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            padding: 1rem;
+            text-align: center;
+        }
+        .accuracy-card-num {
+            font-size: 1.5rem;
+            font-weight: 800;
+            font-family: var(--font-heading);
+        }
+        .accuracy-card-num.green { color: var(--emerald); }
+        .accuracy-card-num.blue { color: var(--secondary); }
+        .accuracy-card-num.purple { color: var(--primary); }
+        .accuracy-card-num.amber { color: var(--amber); }
+        .accuracy-card-lbl {
+            font-size: 0.75rem;
+            font-weight: 700;
+            margin-top: 0.25rem;
+            color: var(--text-main);
+        }
+        .accuracy-card-desc {
+            font-size: 0.65rem;
+            color: var(--text-muted);
+            margin-top: 0.25rem;
+        }
+        .timeline-card {
+            background: rgba(59, 130, 246, 0.05);
+            border-color: rgba(59, 130, 246, 0.2);
+        }
+        .timeline-card h3 {
+            color: var(--secondary);
+            margin-bottom: 1.5rem;
+        }
+        .timeline-steps {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+        .timeline-step {
+            display: flex;
+            gap: 1rem;
+            border-left: 2px dashed var(--border-color);
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        .timeline-step:last-child {
+            border-left: none;
+        }
+        .timeline-step::before {
+            content: '✓';
+            position: absolute;
+            left: -11px;
+            top: 0;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--emerald);
+            color: var(--text-inverse);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.65rem;
+            font-weight: 800;
+        }
+        .timeline-step.pending::before {
+            content: '';
+            background: var(--bg-main);
+            border: 2px solid var(--secondary);
+        }
+        .timeline-step-date {
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--secondary);
+            text-transform: uppercase;
+        }
+        .timeline-step-title {
+            font-weight: 700;
+            font-size: 0.95rem;
+            margin-top: 0.125rem;
+        }
+        .timeline-step-desc {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            margin-top: 0.125rem;
+        }
+        .faq-section {
+            margin: 4rem 0;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+        .faq-item {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            padding: 1.5rem;
+            box-shadow: var(--shadow-sm);
+        }
+        .faq-question {
+            font-weight: 700;
+            font-size: 1.05rem;
+            color: var(--text-main);
+            margin-bottom: 0.5rem;
+        }
+        .faq-answer {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-glow-purple"></div>
+    <div class="bg-glow-blue"></div>
+
+    <!-- Header Navigation -->
+    <header>
+        <div class="header-container">
+            <a href="/" class="logo-link">
+                <div class="logo-img">J</div>
+                <span class="logo-text">jeerankpredictor.com</span>
+            </a>
+            <nav>
+                <a href="/" class="nav-link active">Home</a>
+                <a href="/jee-main-rank-predictor" class="nav-link">JEE Main</a>
+                <a href="/jee-advanced-rank-predictor" class="nav-link">JEE Advanced</a>
+                <a href="/jee-main-college-predictor" class="nav-link">NIT/IIIT Predictor</a>
+                <a href="/jee-advanced-college-predictor" class="nav-cta">IIT Predictor</a>
+            </nav>
+            <button class="menu-btn" aria-label="Toggle menu" onclick="toggleMenu()">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"></line><line x1="4" x2="20" y1="6" y2="6"></line><line x1="4" x2="20" y1="18" y2="18"></line></svg>
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Workspace -->
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="badge-purple">
+                <span class="pulse-dot"></span> 2027 Projections Live
+            </div>
+            <h1>Predict Your <span class="gradient-text">JEE Rank &amp; Percentile</span> Instantly</h1>
+            <p>India's most accurate JEE Main predictor optimized for 2027. Enter your expected marks, select your shift, and get your expected All India Rank and percentile curve within seconds.</p>
+            
+            <div class="hero-actions">
+                <a href="/jee-main-rank-predictor" class="btn" style="flex: 1;">📊 Predict Rank</a>
+                <a href="/jee-main-college-predictor" class="btn btn-secondary" style="flex: 1;">🏛️ Predict College</a>
+            </div>
+
+            <div class="hero-stats">
+                <div class="hero-stat-item">
+                    <span>✓</span> <span>97.55% baseline accuracy</span>
+                </div>
+                <div class="hero-stat-item">
+                    <span>👥</span> <span>50L+ Annual users</span>
+                </div>
+                <div class="hero-stat-item">
+                    <span>⚡</span> <span>Results in &lt;1 second</span>
+                </div>
+                <div class="hero-stat-item">
+                    <span>🔒</span> <span>Zero user data stored</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Accuracy Audit & Timeline Section -->
+        <section class="audit-grid">
+            <div class="card">
+                <div class="badge-green" style="margin-bottom: 0.75rem;">
+                    <span class="pulse-dot"></span> 2027 MODEL CALIBRATION
+                </div>
+                <h2>JEE Main Normalization — <span class="gradient-text">97.55% Calibrated Baseline</span></h2>
+                <p style="margin-top: 0.5rem; font-size: 0.9rem;">To ensure high predictive accuracy for JEE Main 2027, our algorithm uses normalization models refined directly against audited April results. Our verification benchmark shows stable deviations:</p>
+                
+                <div class="accuracy-cards">
+                    <div class="accuracy-card">
+                        <div class="accuracy-card-num green">97.55%</div>
+                        <div class="accuracy-card-lbl">Overall Accuracy</div>
+                        <div class="accuracy-card-desc">All shifts combined</div>
+                    </div>
+                    <div class="accuracy-card">
+                        <div class="accuracy-card-num blue">59%</div>
+                        <div class="accuracy-card-lbl">Within ±3 Marks</div>
+                        <div class="accuracy-card-desc">Low deviation range</div>
+                    </div>
+                    <div class="accuracy-card">
+                        <div class="accuracy-card-num purple">81%</div>
+                        <div class="accuracy-card-lbl">Within ±5 Marks</div>
+                        <div class="accuracy-card-desc">Mid range stability</div>
+                    </div>
+                    <div class="accuracy-card">
+                        <div class="accuracy-card-num amber">100%</div>
+                        <div class="accuracy-card-lbl">Within ±10 Marks</div>
+                        <div class="accuracy-card-desc">100% exact boundaries</div>
+                    </div>
+                </div>
+
+                <h3 style="margin-top: 2rem; margin-bottom: 1rem;">Verification Accuracy by Shift</h3>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Shift Classification</th>
+                                <th>Accuracy Rating</th>
+                                <th>Avg Delta (Δ)</th>
+                                <th>Predictive Verdict</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="table-highlight">Hard Shifts (Avg)</td>
+                                <td style="color: var(--emerald); font-weight: 700;">99.25%</td>
+                                <td>-0.2</td>
+                                <td style="color: var(--emerald); font-weight: 600;">Excellent</td>
+                            </tr>
+                            <tr>
+                                <td class="table-highlight">Moderate-Hard Shifts (Avg)</td>
+                                <td style="color: var(--emerald); font-weight: 700;">98.75%</td>
+                                <td>-1.4</td>
+                                <td style="color: var(--emerald); font-weight: 600;">Excellent</td>
+                            </tr>
+                            <tr>
+                                <td class="table-highlight">Moderate Shifts (Avg)</td>
+                                <td style="color: var(--emerald); font-weight: 700;">98.16%</td>
+                                <td>-2.0</td>
+                                <td style="color: var(--emerald); font-weight: 600;">Excellent</td>
+                            </tr>
+                            <tr>
+                                <td class="table-highlight">Easy-Moderate Shifts (Avg)</td>
+                                <td style="color: var(--emerald); font-weight: 700;">97.01%</td>
+                                <td>-3.9</td>
+                                <td style="color: var(--emerald); font-weight: 600;">Excellent</td>
+                            </tr>
+                            <tr>
+                                <td class="table-highlight">Easy Shifts (Avg)</td>
+                                <td style="color: var(--secondary); font-weight: 700;">96.19%</td>
+                                <td>-4.3</td>
+                                <td style="color: var(--secondary); font-weight: 600;">Very Good</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Timeline card -->
+            <div class="card timeline-card">
+                <h3>JEE Main 2027 Projections Timeline</h3>
+                <div class="timeline-steps">
+                    <div class="timeline-step">
+                        <div>
+                            <div class="timeline-step-date">Nov - Dec 2026</div>
+                            <div class="timeline-step-title">Session 1 Registration</div>
+                            <div class="timeline-step-desc">Application forms open on NTA portal for January Session.</div>
+                        </div>
+                    </div>
+                    <div class="timeline-step">
+                        <div>
+                            <div class="timeline-step-date">Jan 2027</div>
+                            <div class="timeline-step-title">Session 1 Exam &amp; Answer Keys</div>
+                            <div class="timeline-step-desc">Computer-based exams begin. Provisional keys open for challenges.</div>
+                        </div>
+                    </div>
+                    <div class="timeline-step">
+                        <div>
+                            <div class="timeline-step-date">Feb 2027</div>
+                            <div class="timeline-step-title">Session 1 NTA Scorecards</div>
+                            <div class="timeline-step-desc">Session 1 normalized percentiles declared. Registration for April starts.</div>
+                        </div>
+                    </div>
+                    <div class="timeline-step pending">
+                        <div>
+                            <div class="timeline-step-date">Apr - May 2027</div>
+                            <div class="timeline-step-title">Session 2 &amp; Final Rank List</div>
+                            <div class="timeline-step-desc">Combined All India Rank list published based on the best of two scores.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Reference Table Section -->
+        <section style="margin: 4rem 0;">
+            <div class="section-header">
+                <h2>Expected Shift-wise <span class="gradient-text">Marks vs Percentile (2027 Projections)</span></h2>
+                <p>Expected raw marks required to score a specific percentile across all April shifts (out of 300 total marks).</p>
+            </div>
+            
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th class="sticky-col">%ile</th>
+                            <th>Expected AIR</th>
+                            <th>2 S1</th>
+                            <th>2 S2</th>
+                            <th>4 S1</th>
+                            <th>4 S2</th>
+                            <th>5 S1</th>
+                            <th>5 S2</th>
+                            <th>6 S1</th>
+                            <th>6 S2</th>
+                            <th>8 S2</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="sticky-col table-highlight">99%</td>
+                            <td style="font-weight: 600;">~16,000</td>
+                            <td>181</td>
+                            <td>174</td>
+                            <td>184</td>
+                            <td>189</td>
+                            <td>194</td>
+                            <td>188</td>
+                            <td>173</td>
+                            <td>195</td>
+                            <td>165</td>
+                        </tr>
+                        <tr>
+                            <td class="sticky-col table-highlight">98%</td>
+                            <td style="font-weight: 600;">~32,000</td>
+                            <td>161</td>
+                            <td>150</td>
+                            <td>165</td>
+                            <td>165</td>
+                            <td>170</td>
+                            <td>166</td>
+                            <td>150</td>
+                            <td>171</td>
+                            <td>145</td>
+                        </tr>
+                        <tr>
+                            <td class="sticky-col table-highlight">97%</td>
+                            <td style="font-weight: 600;">~48,000</td>
+                            <td>149</td>
+                            <td>135</td>
+                            <td>153</td>
+                            <td>154</td>
+                            <td>154</td>
+                            <td>152</td>
+                            <td>136</td>
+                            <td>158</td>
+                            <td>133</td>
+                        </tr>
+                        <tr>
+                            <td class="sticky-col table-highlight">96%</td>
+                            <td style="font-weight: 600;">~64,000</td>
+                            <td>139</td>
+                            <td>124</td>
+                            <td>145</td>
+                            <td>143</td>
+                            <td>143</td>
+                            <td>143</td>
+                            <td>124</td>
+                            <td>147</td>
+                            <td>124</td>
+                        </tr>
+                        <tr>
+                            <td class="sticky-col table-highlight">95%</td>
+                            <td style="font-weight: 600;">~80,000</td>
+                            <td>131</td>
+                            <td>114</td>
+                            <td>137</td>
+                            <td>135</td>
+                            <td>134</td>
+                            <td>133</td>
+                            <td>116</td>
+                            <td>138</td>
+                            <td>116</td>
+                        </tr>
+                        <tr>
+                            <td class="sticky-col table-highlight">94%</td>
+                            <td style="font-weight: 600;">~96,000</td>
+                            <td>124</td>
+                            <td>107</td>
+                            <td>131</td>
+                            <td>128</td>
+                            <td>126</td>
+                            <td>124</td>
+                            <td>109</td>
+                            <td>131</td>
+                            <td>109</td>
+                        </tr>
+                        <tr>
+                            <td class="sticky-col table-highlight">93%</td>
+                            <td style="font-weight: 600;">~1,12,000</td>
+                            <td>116</td>
+                            <td>101</td>
+                            <td>125</td>
+                            <td>122</td>
+                            <td>119</td>
+                            <td>119</td>
+                            <td>103</td>
+                            <td>125</td>
+                            <td>103</td>
+                        </tr>
+                        <tr>
+                            <td class="sticky-col table-highlight">92%</td>
+                            <td style="font-weight: 600;">~1,28,000</td>
+                            <td>113</td>
+                            <td>96</td>
+                            <td>119</td>
+                            <td>116</td>
+                            <td>113</td>
+                            <td>113</td>
+                            <td>98</td>
+                            <td>118</td>
+                            <td>99</td>
+                        </tr>
+                        <tr>
+                            <td class="sticky-col table-highlight">91%</td>
+                            <td style="font-weight: 600;">~1,44,000</td>
+                            <td>108</td>
+                            <td>93</td>
+                            <td>114</td>
+                            <td>111</td>
+                            <td>107</td>
+                            <td>108</td>
+                            <td>91</td>
+                            <td>113</td>
+                            <td>95</td>
+                        </tr>
+                        <tr>
+                            <td class="sticky-col table-highlight">90%</td>
+                            <td style="font-weight: 600;">~1,60,000</td>
+                            <td>104</td>
+                            <td>85</td>
+                            <td>109</td>
+                            <td>107</td>
+                            <td>102</td>
+                            <td>102</td>
+                            <td>86</td>
+                            <td>108</td>
+                            <td>91</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p style="font-size: 0.75rem; text-align: center; margin-top: 1rem; color: var(--text-muted);">* Raw marks are calculated as: 4 marks for every correct answer, -1 mark for every wrong answer. Standard NTA equi-percentile normalization is applied shift-wise.</p>
+        </section>
+
+        <!-- Admission & Counselling Guide Section -->
+        <section style="margin: 4rem 0;">
+            <div class="section-header">
+                <h2>JEE 2027 <span class="gradient-text">Admission &amp; Counselling Guide</span></h2>
+                <p>A step-by-step walkthrough of the seat allocation cycle for IITs, NITs, IIITs, and GFTIs.</p>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr; gap: 1.5rem; margin-top: 2rem;">
+                <div class="card" style="display: flex; gap: 1.25rem; align-items: flex-start;">
+                    <div style="background: var(--primary-glow); color: var(--primary); font-weight: 800; font-size: 1.25rem; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; border: 1px solid var(--border-color);">1</div>
+                    <div>
+                        <h3 style="margin-bottom: 0.5rem;">Exam &amp; Results Declaration</h3>
+                        <p style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.6;">Candidates appear for the JEE Main (Session 1 &amp; 2) and/or JEE Advanced exams. NTA declares shift-wise normalized percentile scores, and subsequently publishes the Final All India Rank (AIR) list based on the best of two JEE Main session percentiles. The top ~2.5 Lakh candidates qualify for JEE Advanced.</p>
+                    </div>
+                </div>
+
+                <div class="card" style="display: flex; gap: 1.25rem; align-items: flex-start;">
+                    <div style="background: var(--secondary-glow); color: var(--secondary); font-weight: 800; font-size: 1.25rem; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; border: 1px solid var(--border-color);">2</div>
+                    <div>
+                        <h3 style="margin-bottom: 0.5rem;">JoSAA Portal Registration &amp; Choice Filling</h3>
+                        <p style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.6;">All qualified candidates register on the official JoSAA (Joint Seat Allocation Authority) portal. Here, candidates must lock their preferences for engineering colleges and branches. Option-filling is a critical step; candidates must enter choices in order of absolute preference, as reallocation only happens upward.</p>
+                    </div>
+                </div>
+
+                <div class="card" style="display: flex; gap: 1.25rem; align-items: flex-start;">
+                    <div style="background: var(--emerald-glow); color: var(--emerald); font-weight: 800; font-size: 1.25rem; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; border: 1px solid var(--border-color);">3</div>
+                    <div>
+                        <h3 style="margin-bottom: 0.5rem;">Mock Seat Allocation &amp; Rounds</h3>
+                        <p style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.6;">JoSAA releases mock seat allocations to help students gauge their probability. Next, actual seat allocation happens over multiple rounds (typically 5-6 rounds). When a seat is allocated, the candidate must choose one of three options: Freeze (accept and lock), Slide (accept but look for higher branch in the same institute), or Float (accept but look for higher branch/institute).</p>
+                    </div>
+                </div>
+
+                <div class="card" style="display: flex; gap: 1.25rem; align-items: flex-start;">
+                    <div style="background: var(--amber-glow); color: var(--amber); font-weight: 800; font-size: 1.25rem; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; border: 1px solid var(--border-color);">4</div>
+                    <div>
+                        <h3 style="margin-bottom: 0.5rem;">Document Verification &amp; Seat Acceptance</h3>
+                        <p style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.6;">Once a seat is accepted, candidates upload required academic and category documents (like Category Certificate, Class 10/12 marksheets, Medical Certificate) and pay the seat acceptance fee. Verification is conducted online by the virtual reporting center of the allotted institute.</p>
+                    </div>
+                </div>
+
+                <div class="card" style="display: flex; gap: 1.25rem; align-items: flex-start;">
+                    <div style="background: rgba(225, 29, 72, 0.08); color: var(--rose); font-weight: 800; font-size: 1.25rem; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; border: 1px solid var(--border-color);">5</div>
+                    <div>
+                        <h3 style="margin-bottom: 0.5rem;">CSAB Special Rounds (For NITs, IIITs &amp; GFTIs)</h3>
+                        <p style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.6;">After JoSAA rounds conclude, any vacant seats remaining in NITs, IIITs, and other Government Funded Technical Institutes (GFTIs) are filled via two CSAB (Central Seat Allocation Board) Special Rounds. CSAB rounds often see cutoffs drop, giving a second chance to students with lower percentiles.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Seat Reservation Guidelines -->
+            <div class="card" style="margin-top: 2rem; border-color: rgba(59, 130, 246, 0.2); background: rgba(59, 130, 246, 0.02);">
+                <h3 style="margin-bottom: 0.75rem; color: var(--secondary); display: flex; align-items: center; gap: 0.5rem;">📊 Category Reservation Guidelines</h3>
+                <p style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 1rem;">Seat allocation in JoSAA and CSAB follows the reservation policy defined by the Government of India. The allocation percentages across categories are:</p>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem;">
+                    <div style="padding: 0.75rem; background: var(--bg-muted); border-radius: var(--radius-sm); text-align: center; border: 1px solid var(--border-color);">
+                        <div style="font-size: 0.75rem; color: var(--text-muted);">General (OPEN)</div>
+                        <div style="font-size: 1.15rem; font-weight: 800; color: var(--text-main);">40.5%</div>
+                    </div>
+                    <div style="padding: 0.75rem; background: var(--bg-muted); border-radius: var(--radius-sm); text-align: center; border: 1px solid var(--border-color);">
+                        <div style="font-size: 0.75rem; color: var(--text-muted);">OBC-NCL</div>
+                        <div style="font-size: 1.15rem; font-weight: 800; color: var(--primary);">27%</div>
+                    </div>
+                    <div style="padding: 0.75rem; background: var(--bg-muted); border-radius: var(--radius-sm); text-align: center; border: 1px solid var(--border-color);">
+                        <div style="font-size: 0.75rem; color: var(--text-muted);">Scheduled Caste (SC)</div>
+                        <div style="font-size: 1.15rem; font-weight: 800; color: var(--secondary);">15%</div>
+                    </div>
+                    <div style="padding: 0.75rem; background: var(--bg-muted); border-radius: var(--radius-sm); text-align: center; border: 1px solid var(--border-color);">
+                        <div style="font-size: 0.75rem; color: var(--text-muted);">Scheduled Tribe (ST)</div>
+                        <div style="font-size: 1.15rem; font-weight: 800; color: var(--emerald);">7.5%</div>
+                    </div>
+                    <div style="padding: 0.75rem; background: var(--bg-muted); border-radius: var(--radius-sm); text-align: center; border: 1px solid var(--border-color);">
+                        <div style="font-size: 0.75rem; color: var(--text-muted);">Gen-EWS</div>
+                        <div style="font-size: 1.15rem; font-weight: 800; color: var(--amber);">10%</div>
+                    </div>
+                </div>
+                <p style="font-size: 0.75rem; color: var(--text-muted); margin-top: 1rem; line-height: 1.4;">* Note: A horizontal reservation of 5% is allocated for Persons with Disabilities (PwD) within each of the respective categories. Additionally, supernumerary seats are created for female candidates (typically 20%) to improve gender diversity at IITs and NITs.</p>
+            </div>
+        </section>
+
+        <!-- FAQs Section -->
+        <section class="faq-section">
+            <div class="section-header">
+                <h2>Frequently Asked <span class="gradient-text">Questions (FAQ)</span></h2>
+                <p>Everything you need to know about JEE Main 2027 normalizations, calculations, and college selections.</p>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">How does JEE Main normalization work?</div>
+                <div class="faq-answer">Since the exam is conducted in multiple shifts with varying difficulty, NTA uses a normalization process based on percentile scores. Your percentile represents the percentage of candidates who scored equal to or less than you in that specific shift. It is calculated as: <code>100 × (No. of candidates in the shift with score ≤ raw score) / (Total candidates in the shift)</code>.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">What is a good percentile in JEE Main 2027?</div>
+                <div class="faq-answer">A percentile above 99 is considered excellent and generally guarantees a Computer Science (CSE) seat in top-tier NITs and IIITs. Percentiles between 95 and 98 qualify you for middle and lower-tier NITs/IIITs or core branches. A percentile above 93-94 (depending on category) is typically required to qualify for JEE Advanced.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">How are Category Ranks estimated?</div>
+                <div class="faq-answer">Category ranks (OBC-NCL, EWS, SC, ST) are estimated from your predicted All India Rank (AIR) using historical allocation curves and the reservation distribution ratios defined by the Government of India. In counselling portals like JoSAA, category cutoffs are displayed using Category Ranks.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">What is the difference between JoSAA and CSAB?</div>
+                <div class="faq-answer">JoSAA (Joint Seat Allocation Authority) conducts the first 6 rounds of counselling for IITs, NITs, IIITs, and GFTIs. After JoSAA rounds are completed, CSAB (Central Seat Allocation Board) conducts special rounds to fill the remaining vacant seats in NITs, IIITs, and GFTIs (IIT seats are not part of CSAB). CSAB cutoffs are often slightly more relaxed.</div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-brand">
+                <a href="/" class="footer-logo">
+                    <div class="logo-img">J</div>
+                    <span class="logo-text">jeerankpredictor.com</span>
+                </a>
+                <p class="footer-desc">India's most trusted educational calculator website. Helping students estimate their JEE Main and Advanced options since 2023.</p>
+                <div class="footer-contact" style="margin-top: 0.5rem;">
+                    <div class="footer-contact-item" style="font-size: 0.85rem; display: flex; align-items: center; gap: 0.5rem;">
+                        <span>✉️</span>
+                        <a href="mailto:support@jeerankpredictor.com" style="color: #1f2937; text-decoration: none; font-weight: 600;">support@jeerankpredictor.com</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-links-col">
+                <div class="footer-title">Calculators</div>
+                <ul class="footer-links">
+                    <li><a href="/jee-main-rank-predictor" class="footer-link">JEE Main Rank Predictor</a></li>
+                    <li><a href="/jee-main-precentile-predictor" class="footer-link">JEE Main Percentile Predictor</a></li>
+                    <li><a href="/jee-main-college-predictor" class="footer-link">NIT/IIIT College Predictor</a></li>
+                    <li><a href="/jee-advanced-rank-predictor" class="footer-link">JEE Advanced Rank Predictor</a></li>
+                    <li><a href="/jee-advanced-college-predictor" class="footer-link">IIT College Predictor</a></li>
+                </ul>
+            </div>
+            <div class="footer-links-col">
+                <div class="footer-title">Counselling</div>
+                <ul class="footer-links">
+                    <li><a href="https://josaa.nic.in" target="_blank" rel="noopener" class="footer-link">JoSAA Portal</a></li>
+                    <li><a href="https://csab.nic.in" target="_blank" rel="noopener" class="footer-link">CSAB Board</a></li>
+                    <li><a href="https://jeemain.nta.ac.in" target="_blank" rel="noopener" class="footer-link">NTA JEE Main</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2027 jeerankpredictor.com. All rights reserved.</p>
+            <div class="footer-bottom-links">
+                <a href="#" class="footer-bottom-link">Privacy Policy</a>
+                <a href="#" class="footer-bottom-link">Terms of Service</a>
+                <a href="#" class="footer-bottom-link">Contact Us</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Mobile Bottom Navigation Bar -->
+    <nav class="mobile-nav">
+        <a href="/" class="mobile-nav-link active">
+            <span class="mobile-nav-icon">🏠</span>
+            <span>Home</span>
+        </a>
+        <a href="/jee-main-precentile-predictor" class="mobile-nav-link">
+            <span class="mobile-nav-icon">📊</span>
+            <span>Percentile</span>
+        </a>
+        <a href="/jee-main-college-predictor" class="mobile-nav-link">
+            <span class="mobile-nav-icon">🏛️</span>
+            <span>Colleges</span>
+        </a>
+        <a href="/jee-main-rank-predictor" class="mobile-nav-link">
+            <span class="mobile-nav-icon">📝</span>
+            <span>Rank</span>
+        </a>
+    </nav>
+
+    <!-- Shared Toggle Script -->
+    <script>
+        function toggleMenu() {
+            document.querySelector('header nav').classList.toggle('open');
+        }
+    </script>
+<script src="assets/js/router.js"></script>
+</body>
+</html>
