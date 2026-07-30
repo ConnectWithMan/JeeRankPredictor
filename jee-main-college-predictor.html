@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5K24QYDGGX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-5K24QYDGGX');
+    </script>
+
+    <title>JEE Main College Predictor 2027 | Free JOSAA IIT NIT IIIT Predictor</title>
+    <meta name="description" content="Predict your admission chances in 100+ NITs, IIITs, and GFTIs based on your JEE Main rank. Free college predictor matching official JOSAA Round 6 cutoffs.">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://jeerankpredictor.com/jee-main-college-predictor">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://jeerankpredictor.com/jee-main-college-predictor">
+    <meta property="og:title" content="JEE Main College Predictor 2027 | Free JOSAA IIT NIT IIIT Predictor">
+    <meta property="og:description" content="Predict your admission chances in 100+ NITs, IIITs, and GFTIs based on your JEE Main rank. Free college predictor matching official JOSAA Round 6 cutoffs.">
+    <meta property="og:image" content="https://jeerankpredictor.com/assets/img/og-image-college.jpg">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://jeerankpredictor.com/jee-main-college-predictor">
+    <meta name="twitter:title" content="JEE Main College Predictor 2027 | Free JOSAA IIT NIT IIIT Predictor">
+    <meta name="twitter:description" content="Predict your admission chances in 100+ NITs, IIITs, and GFTIs based on your JEE Main rank. Free college predictor matching official JOSAA Round 6 cutoffs.">
+    <meta name="twitter:image" content="https://jeerankpredictor.com/assets/img/og-image-college.jpg">
+
+    <!-- Schema.org JSON-LD Markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "JEE Main College Predictor",
+      "url": "https://jeerankpredictor.com/jee-main-college-predictor",
+      "description": "An interactive search tool to predict admission outcomes in NITs, IIITs, and GFTIs using JOSAA/CSAB historical rank filters.",
+      "applicationCategory": "EducationalApplication",
+      "operatingSystem": "All"
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is a mock seat allocation?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Before the actual rounds begin, JoSAA runs two mock seat allocation rounds based on the initial choices locked by students. This helps you understand what college and branch you are likely to get, allowing you to reorder your choices before the final deadline."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I get into a top NIT with 95 percentile?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Under the General category (OPEN), getting a top branch (like CSE/ECE) in top-tier NITs (like NIT Trichy or NIT Surathkal) is very difficult at 95 percentile. However, you can secure seats in lower branches (like Civil, Metallurgy, or Biotechnology) in those NITs, or core branches in newer NITs and GFTIs, especially if you qualify for the Home State Quota."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is a GFTI?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "GFTIs (Government Funded Technical Institutes) are public engineering colleges funded by the Central Government or State Governments (such as BIT Mesra, PEC Chandigarh, and JNU School of Engineering). They participate in JoSAA/CSAB counselling and accept admissions via JEE Main ranks."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        .college-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2.5rem;
+            margin: 2rem 0;
+        }
+        @media (min-width: 992px) {
+            .college-grid {
+                grid-template-columns: 1.25fr 2.25fr;
+            }
+            .college-grid:not(.has-results) {
+                grid-template-columns: 1fr;
+                max-width: 600px;
+                margin: 2rem auto;
+            }
+        }
+        .filter-badge-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .filter-badge {
+            padding: 0.35rem 0.85rem;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border-color);
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .filter-badge.active {
+            background: var(--primary);
+            border-color: var(--primary);
+            color: #fff;
+            box-shadow: 0 0 10px rgba(139, 92, 246, 0.2);
+        }
+        .chance-high {
+            background: rgba(16, 185, 129, 0.15);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            color: #34d399;
+            padding: 0.25rem 0.5rem;
+            border-radius: var(--radius-sm);
+            font-weight: 700;
+            font-size: 0.75rem;
+        }
+        .chance-medium {
+            background: rgba(245, 158, 11, 0.15);
+            border: 1px solid rgba(245, 158, 11, 0.3);
+            color: #fbbf24;
+            padding: 0.25rem 0.5rem;
+            border-radius: var(--radius-sm);
+            font-weight: 700;
+            font-size: 0.75rem;
+        }
+        .chance-low {
+            background: rgba(59, 130, 246, 0.15);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            color: #60a5fa;
+            padding: 0.25rem 0.5rem;
+            border-radius: var(--radius-sm);
+            font-weight: 700;
+            font-size: 0.75rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-glow-purple"></div>
+    <div class="bg-glow-blue"></div>
+
+    <!-- Header Navigation -->
+    <header></header>
+
+
+    <!-- Main Workspace -->
+    <main>
+        <div style="text-align: center; margin-bottom: 3rem;">
+            <div class="badge-purple">
+                <span class="pulse-dot"></span> JOSAA Round 6 Official Cutoffs Loaded
+            </div>
+            <h1 style="margin-top: 1rem;">JEE Main <span class="gradient-text">College Predictor</span> 2027</h1>
+            <p style="margin-top: 0.5rem; font-size: 1.1rem; max-width: 650px; margin-left: auto; margin-right: auto;">Discover which NITs, IIITs, and GFTIs you qualify for based on your percentile-derived All India Rank or Category Rank.</p>
+        </div>
+
+        <section class="college-grid">
+            <!-- Parameters Card -->
+            <div class="card" style="height: fit-content;">
+                <h3 style="margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.5rem;">🏛️ Enter Your Details</h3>
+                
+                <form id="predictorForm" onsubmit="predict(event)">
+                    <!-- Rank Input -->
+                    <div class="form-group">
+                        <label for="rank" class="form-label">
+                            <span class="form-number-bullet">1</span> Enter Your JEE Rank
+                        </label>
+                        <span class="form-desc">Provide your category rank if selecting SC/ST/OBC/EWS category, else enter CRL rank.</span>
+                        <div class="input-container">
+                            <span class="input-icon">🏆</span>
+                            <input type="number" id="rank" class="form-input form-input-icon" placeholder="e.g., 8500" min="1" required>
+                        </div>
+                    </div>
+
+                    <!-- Category Input -->
+                    <div class="form-group">
+                        <label for="category" class="form-label">
+                            <span class="form-number-bullet">2</span> Select Category
+                        </label>
+                        <span class="form-desc">Estimates chances matching selected quota cutoff.</span>
+                        <select id="category" class="form-select" required>
+                            <option value="OPEN" selected>General (OPEN)</option>
+                            <option value="OBC-NCL">OBC-NCL</option>
+                            <option value="EWS">Gen-EWS</option>
+                            <option value="SC">SC</option>
+                            <option value="ST">ST</option>
+                        </select>
+                    </div>
+
+                    <!-- Home State Input -->
+                    <div class="form-group">
+                        <label for="state" class="form-label">
+                            <span class="form-number-bullet">3</span> Home State Quota?
+                        </label>
+                        <span class="form-desc">Check to see Home State (HS) seat options in addition to OS seats.</span>
+                        <select id="state" class="form-select">
+                            <option value="" selected>No Home State (Other State Quota Only)</option>
+                            <option value="Tamil Nadu">Tamil Nadu (NIT Trichy)</option>
+                            <option value="Karnataka">Karnataka (NIT Surathkal)</option>
+                            <option value="Andhra Pradesh">Andhra Pradesh / Telangana (NIT Warangal)</option>
+                            <option value="Uttar Pradesh">Uttar Pradesh (MNNIT Allahabad)</option>
+                            <option value="Odisha">Odisha (NIT Rourkela)</option>
+                            <option value="Maharashtra">Maharashtra (VNIT Nagpur)</option>
+                            <option value="Kerala">Kerala (NIT Calicut)</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" class="btn" style="margin-top: 1rem;">Find Qualifying Colleges</button>
+                </form>
+            </div>
+
+            <!-- Results Panel -->
+            <div id="resultsCard" class="card" style="display: none;">
+                <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; margin-bottom: 2rem;">
+                    <div>
+                        <h3 id="resultsTitle">Matching Admissions Options</h3>
+                        <p style="font-size: 0.8rem; margin-top: 0.25rem;" id="resultsCount">Found 12 matching branches</p>
+                    </div>
+                    <div class="badge-green">JOSAA ROUND 6 DATA</div>
+                </div>
+
+                <!-- Filters -->
+                <div style="margin-bottom: 1.5rem;">
+                    <div style="font-size: 0.75rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase; margin-bottom: 0.5rem;">Institute Type</div>
+                    <div class="filter-badge-row" id="typeFilters">
+                        <span class="filter-badge active" data-type="All">All Institutes</span>
+                        <span class="filter-badge" data-type="NIT">NITs Only</span>
+                        <span class="filter-badge" data-type="IIIT">IIITs Only</span>
+                        <span class="filter-badge" data-type="GFTI">GFTIs Only</span>
+                    </div>
+
+                    <div style="font-size: 0.75rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase; margin-bottom: 0.5rem;">Branch Filter</div>
+                    <div class="filter-badge-row" id="branchFilters">
+                        <span class="filter-badge active" data-branch="All">All Branches</span>
+                        <span class="filter-badge" data-branch="Computer Science">CSE</span>
+                        <span class="filter-badge" data-branch="Electronics">ECE</span>
+                        <span class="filter-badge" data-branch="Electrical">EE</span>
+                        <span class="filter-badge" data-branch="Mechanical">ME</span>
+                    </div>
+                </div>
+
+                <!-- Results Table -->
+                <div class="table-container">
+                    <table id="collegesTable">
+                        <thead>
+                            <tr>
+                                <th style="text-align: left;">Institute</th>
+                                <th>Branch</th>
+                                <th>Quota</th>
+                                <th>Cutoff CRL</th>
+                                <th>Admission Chance</th>
+                            </tr>
+                        </thead>
+                        <tbody id="resultsBody">
+                            <!-- Injected dynamically -->
+                        </tbody>
+                    </table>
+                </div>
+
+                <div id="noResults" style="display: none; text-align: center; padding: 3rem 1rem;">
+                    <div style="font-size: 2.5rem; margin-bottom: 1rem;">🔍</div>
+                    <h4>No Matching Colleges Found</h4>
+                    <p style="font-size: 0.85rem; max-width: 320px; margin: 0.5rem auto 0;">Your rank is higher than the closing ranks of our indexed colleges. Try entering a different rank or checking CSAB trends.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Informational: Home State vs Other State Quotas -->
+        <section class="card" style="margin: 4rem 0;">
+            <h3 style="margin-bottom: 1rem;">Home State (HS) vs. Other State (OS) Quotas</h3>
+            <p style="font-size: 0.9rem; line-height: 1.6; color: var(--text-muted); margin-bottom: 1.25rem;">
+                National Institutes of Technology (NITs) allocate 50% of their total seats under the <strong>Home State Quota</strong>. The remaining 50% are filled via the <strong>Other State Quota</strong>.
+            </p>
+            <div style="display: grid; grid-template-columns: 1fr; gap: 1.5rem;">
+                <div style="background: var(--bg-muted); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.25rem;">
+                    <h4 style="font-weight: 700; margin-bottom: 0.5rem; color: var(--text-main);">Home State Quota eligibility</h4>
+                    <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">
+                        Your Home State is determined by the location of the school where you completed your Class 12 (or equivalent) board examination. It has nothing to do with your place of birth or residence. For example, if you live in Delhi but passed Class 12 in Uttar Pradesh, your Home State is Uttar Pradesh.
+                    </p>
+                </div>
+                <div style="background: var(--bg-muted); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.25rem;">
+                    <h4 style="font-weight: 700; margin-bottom: 0.5rem; color: var(--text-main);">Impact on Cutoff Ranks</h4>
+                    <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">
+                        In most states (with exceptions like Delhi or Goa where competition is fierce), the closing ranks for the Home State Quota are significantly higher (more relaxed) than the Other State Quota. Choosing your Home State option inside the predictor lets you see these options.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- JoSAA vs CSAB Counselling Section -->
+        <section class="card" style="margin-top: 2.5rem;">
+            <h3 style="margin-bottom: 1rem; color: var(--text-main);">JoSAA vs. CSAB Counselling Mechanics</h3>
+            <p style="font-size: 0.9rem; line-height: 1.6; color: var(--text-muted); margin-bottom: 1.25rem;">
+                Admissions to public engineering institutes in India happen in two successive phases: JoSAA rounds and CSAB special rounds.
+            </p>
+            <div style="display: grid; grid-template-columns: 1fr; gap: 1.5rem; margin-top: 1rem;">
+                <div style="background: var(--bg-muted); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.25rem;">
+                    <h4 style="font-weight: 700; margin-bottom: 0.5rem; color: var(--text-main);">JoSAA (Joint Seat Allocation Authority)</h4>
+                    <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">
+                        JoSAA conducts the first 5-6 rounds of counselling for all 23 IITs, 31 NITs, 26 IIITs, and 30+ GFTIs. Every student registers once and locks their preference list. Category seats and gender-neutral/female-only supernumerary seats are allocated strictly by merit in successive rounds.
+                    </p>
+                </div>
+                <div style="background: var(--bg-muted); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.25rem;">
+                    <h4 style="font-weight: 700; margin-bottom: 0.5rem; color: var(--text-main);">CSAB Special Rounds</h4>
+                    <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">
+                        After JoSAA rounds conclude, any seat vacant in NITs, IIITs, or GFTIs due to withdrawals or empty allocations are transferred to the Central Seat Allocation Board (CSAB). CSAB conducts 2 Special Rounds. Note: **IIT seats are NOT part of CSAB rounds.**
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Home State Quota & Choice Filling Strategy Guide -->
+        <section class="guide-section">
+            <div class="section-header">
+                <h2>Counselling & <span class="gradient-text">Choice Filling Strategy</span></h2>
+                <p>Maximize your seat allocation chances across NITs, IIITs, and GFTIs.</p>
+            </div>
+
+            <div class="guide-grid">
+                <div class="info-card">
+                    <div class="info-card-header">
+                        <div class="info-card-icon">🏠</div>
+                        <div class="info-card-title">Home State (HS) Quota Eligibility</div>
+                    </div>
+                    <div class="info-card-body">
+                        50% of total seats in every NIT are reserved for Home State candidates. <strong>Important:</strong> Your Home State quota is determined strictly by the state where you completed your 12th Board Examinations, NOT your permanent residence domicile certificate!
+                    </div>
+                </div>
+
+                <div class="info-card">
+                    <div class="info-card-header">
+                        <div class="info-card-icon">📊</div>
+                        <div class="info-card-title">The 3-Tier Choice List Rule</div>
+                    </div>
+                    <div class="info-card-body">
+                        Organize your JoSAA choice list into 3 distinct layers:
+                        <br>1. <strong>Ambitious (Top 25%):</strong> Preferred CSE/ECE in Top NITs slightly above your rank.
+                        <br>2. <strong>Target (Middle 50%):</strong> Highly probable branches based on predictor.
+                        <br>3. <strong>Safe (Bottom 25%):</strong> Guaranteed backups to prevent getting zero allotments.
+                    </div>
+                </div>
+
+                <div class="info-card">
+                    <div class="info-card-header">
+                        <div class="info-card-icon">🏛️</div>
+                        <div class="info-card-title">NIT vs IIIT vs GFTI Selection</div>
+                    </div>
+                    <div class="info-card-body">
+                        NITs offer established campus infrastructure, broader branch variety, and strong alumni networks. IIITs focus exclusively on IT/CSE/ECE with specialized tech curricula. GFTIs (like PEC Chandigarh and BIT Mesra) offer excellent ROI and government funding.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="faq-section" style="margin-top: 3rem;">
+
+            <div class="section-header">
+                <h2>College Predictor <span class="gradient-text">FAQs</span></h2>
+                <p>Answers to common questions about cutoffs, seat quotas, and branch options.</p>
+            </div>
+
+            <div class="faq-accordion">
+                <div class="faq-accordion-item active">
+                    <div class="faq-accordion-header" onclick="toggleAccordion(this)">
+                        <span>What is a mock seat allocation?</span>
+                        <span class="faq-accordion-icon">▼</span>
+                    </div>
+                    <div class="faq-accordion-body">
+                        Before the actual rounds begin, JoSAA runs two mock seat allocation rounds based on the initial choices locked by students. This helps you understand what college and branch you are likely to get, allowing you to reorder your choices before the final deadline.
+                    </div>
+                </div>
+
+                <div class="faq-accordion-item">
+                    <div class="faq-accordion-header" onclick="toggleAccordion(this)">
+                        <span>Can I get into a top NIT with 95 percentile?</span>
+                        <span class="faq-accordion-icon">▼</span>
+                    </div>
+                    <div class="faq-accordion-body">
+                        Under the General category (OPEN), getting a top branch (like CSE/ECE) in top-tier NITs (like NIT Trichy or NIT Surathkal) is very difficult at 95 percentile. However, you can secure seats in lower branches (like Civil, Metallurgy, or Biotechnology) in those NITs, or core branches in newer NITs and GFTIs, especially if you qualify for the Home State Quota.
+                    </div>
+                </div>
+
+                <div class="faq-accordion-item">
+                    <div class="faq-accordion-header" onclick="toggleAccordion(this)">
+                        <span>What is a GFTI?</span>
+                        <span class="faq-accordion-icon">▼</span>
+                    </div>
+                    <div class="faq-accordion-body">
+                        GFTIs (Government Funded Technical Institutes) are public engineering colleges funded by the Central Government or State Governments (such as BIT Mesra, PEC Chandigarh, and JNU School of Engineering). They participate in JoSAA/CSAB counselling and accept admissions via JEE Main ranks.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer Section -->
+    <footer></footer>
+
+    <!-- Mobile Bottom Navigation Bar -->
+    <nav class="mobile-nav"></nav>
+
+    <!-- JS Logic and dataset import -->
+    <script src="assets/js/common.js"></script>
+    <script src="assets/js/data.js"></script>
+    <script>
+        // Filters State
+
+        let currentTypeFilter = "All";
+        let currentBranchFilter = "All";
+        let activeRank = 0;
+        let activeCategory = "OPEN";
+        let activeState = "";
+
+        // URL Parameters parsing
+        window.addEventListener('DOMContentLoaded', () => {
+            const params = new URLSearchParams(window.location.search);
+            const rank = params.get('rank');
+            const category = params.get('category');
+
+            if (rank) {
+                document.getElementById('rank').value = rank;
+                if (category) {
+                    document.getElementById('category').value = category;
+                }
+                // Auto submit form
+                document.getElementById('predictorForm').dispatchEvent(new Event('submit'));
+            }
+        });
+
+        // Setup filter badge click listeners
+        document.getElementById('typeFilters').addEventListener('click', (e) => {
+            if (e.target.classList.contains('filter-badge')) {
+                document.querySelectorAll('#typeFilters .filter-badge').forEach(b => b.classList.remove('active'));
+                e.target.classList.add('active');
+                currentTypeFilter = e.target.getAttribute('data-type');
+                renderResults();
+            }
+        });
+
+        document.getElementById('branchFilters').addEventListener('click', (e) => {
+            if (e.target.classList.contains('filter-badge')) {
+                document.querySelectorAll('#branchFilters .filter-badge').forEach(b => b.classList.remove('active'));
+                e.target.classList.add('active');
+                currentBranchFilter = e.target.getAttribute('data-branch');
+                renderResults();
+            }
+        });
+
+        function predict(event) {
+            event.preventDefault();
+            
+            activeRank = document.getElementById('rank').value;
+            activeCategory = document.getElementById('category').value;
+            activeState = document.getElementById('state').value;
+
+            if (!activeRank) return;
+
+            renderResults();
+            
+            // Toggle grid class for layout alignment
+            document.querySelector('.college-grid').classList.add('has-results');
+
+            // Show Card
+            const card = document.getElementById('resultsCard');
+            card.style.display = 'block';
+
+            card.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+
+        function renderResults() {
+            const results = predictColleges(activeRank, activeCategory, "Gender-Neutral", activeState, currentTypeFilter, currentBranchFilter);
+            const tbody = document.getElementById('resultsBody');
+            const table = document.getElementById('collegesTable');
+            const noResults = document.getElementById('noResults');
+            
+            tbody.innerHTML = '';
+            
+            if (results.length === 0) {
+                table.style.display = 'none';
+                noResults.style.display = 'block';
+                document.getElementById('resultsCount').innerText = 'Found 0 options';
+                return;
+            }
+
+            table.style.display = 'table';
+            noResults.style.display = 'none';
+            document.getElementById('resultsCount').innerText = `Found ${results.length} matching branches`;
+
+            results.forEach(item => {
+                const tr = document.createElement('tr');
+                
+                tr.innerHTML = `
+                    <td class="table-highlight" style="text-align: left;">${item.college}</td>
+                    <td>${item.branch}</td>
+                    <td><span class="badge-purple" style="font-size: 0.65rem; padding: 0.15rem 0.4rem;">${item.quota}</span></td>
+                    <td style="font-family: monospace; font-weight: 600;">${item.closingRank.toLocaleString()}</td>
+                    <td><span class="${item.chanceClass}">${item.chance}</span></td>
+                `;
+                tbody.appendChild(tr);
+            });
+        }
+    </script>
+<script src="assets/js/router.js"></script>
+</body>
+</html>
