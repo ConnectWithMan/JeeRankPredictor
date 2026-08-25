@@ -441,9 +441,9 @@
                     <div class="footer-title">Company & Portals</div>
                     <ul class="footer-links">
                         <li><a href="/about" class="footer-link">About Us</a></li>
-                        <li><a href="/contact" class="footer-link">Contact Support</a></li>
+                        <li><a href="/contact" class="footer-link">Contact</a></li>
+                        <li><a href="https://jeecounselling.com/" target="_blank" class="footer-link">JEE 2027</a></li>
                         <li><a href="https://josaa.nic.in" target="_blank" rel="noopener" class="footer-link">JoSAA Portal</a></li>
-                        <li><a href="https://csab.nic.in" target="_blank" rel="noopener" class="footer-link">CSAB Board</a></li>
                         <li><a href="https://jeemain.nta.ac.in" target="_blank" rel="noopener" class="footer-link">NTA JEE Main</a></li>
                     </ul>
                 </div>
