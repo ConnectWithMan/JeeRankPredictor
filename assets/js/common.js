@@ -386,7 +386,7 @@
             <div class="header-container">
                 <a href="/" class="logo-link">
                     <div class="logo-img">JRP</div>
-                    <span class="logo-text">JeeRankPredictor</span>
+                    <span class="logo-text">Jee Rank Predictor</span>
                 </a>
                 <nav>
                     <a href="/jee-main-rank-predictor" class="nav-link ${route === 'jee-main-rank' ? 'active' : ''}">Rank Predictor</a>
@@ -417,7 +417,7 @@
                 <div class="footer-brand">
                     <a href="/" class="footer-logo">
                         <div class="logo-img">JRP</div>
-                        <span class="logo-text">JeeRankPredictor</span>
+                        <span class="logo-text">Jee Rank Predictor</span>
                     </a>
                     <p class="footer-desc">India's most trusted educational calculator platform. Helping students estimate their JEE Main and Advanced rank, percentile, and college options since 2023.</p>
                     <div class="footer-contact" style="margin-top: 0.5rem;">
