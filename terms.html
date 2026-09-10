@@ -14,40 +14,79 @@
 
         gtag('config', 'G-5K24QYDGGX');
     </script>
-
+<script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
+<script>
+  window.OneSignalDeferred = window.OneSignalDeferred || [];
+  OneSignalDeferred.push(async function(OneSignal) {
+    await OneSignal.init({
+      appId: "a82e3864-7c51-4ccf-b19c-20ba59cdc553",
+    });
+  });
+</script>
     <title>Terms of Service | JeeRankPredictor</title>
     <meta name="description"
         content="Terms of Service for JeeRankPredictor. Review usage rules, educational estimation disclaimers, intellectual property, and user responsibilities.">
     <meta name="keywords"
         content="JeeRankPredictor terms of service, prediction disclaimer, JoSAA seat allotment rules, edtech terms India">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <meta name="author" content="JEE Rank Predictor Academic Research Team">
 
     <!-- Canonical URL -->
     <link rel="canonical" href="https://jeerankpredictor.com/terms">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
+    <meta property="og:site_name" content="JEE Rank Predictor">
+    <meta property="og:locale" content="en_IN">
     <meta property="og:url" content="https://jeerankpredictor.com/terms">
     <meta property="og:title" content="Terms of Service | JeeRankPredictor">
     <meta property="og:description"
         content="Terms of Service for JeeRankPredictor. Review usage rules, educational estimation disclaimers, intellectual property, and user responsibilities.">
-    <meta property="og:image" content="https://jeerankpredictor.com/assets/img/og-image-terms.jpg">
+    <meta property="og:image" content="https://jeerankpredictor.com/assets/img/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="JeeRankPredictor Terms of Service">
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@jeerankpredict">
     <meta name="twitter:url" content="https://jeerankpredictor.com/terms">
     <meta name="twitter:title" content="Terms of Service | JeeRankPredictor">
     <meta name="twitter:description"
         content="Terms of Service for JeeRankPredictor. Review usage rules, educational estimation disclaimers, intellectual property, and user responsibilities.">
-    <meta name="twitter:image" content="https://jeerankpredictor.com/assets/img/og-image-terms.jpg">
+    <meta name="twitter:image" content="https://jeerankpredictor.com/assets/img/og-image.jpg">
 
     <!-- Schema.org JSON-LD Markup -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "WebPage",
-      "name": "Terms of Service - JeeRankPredictor",
-      "url": "https://jeerankpredictor.com/terms",
-      "description": "Terms of service detailing website usage conditions, educational disclaimers, and liability limits for JeeRankPredictor."
+      "@graph": [
+        {
+          "@type": "WebPage",
+          "@id": "https://jeerankpredictor.com/terms#webpage",
+          "name": "Terms of Service - JeeRankPredictor",
+          "url": "https://jeerankpredictor.com/terms",
+          "description": "Terms of Service and legal disclaimer regarding educational rank predictions and JoSAA seat estimates."
+        },
+        {
+          "@type": "BreadcrumbList",
+          "@id": "https://jeerankpredictor.com/terms#breadcrumb",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://jeerankpredictor.com/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Terms of Service",
+              "item": "https://jeerankpredictor.com/terms"
+            }
+          ]
+        }
+      ]
     }
     </script>
 
