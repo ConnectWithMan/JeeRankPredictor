@@ -1,0 +1,15 @@
+# Robots.txt for JEE Rank Predictor
+# https://jeerankpredictor.com
+
+User-agent: *
+Allow: /
+
+# Disallow any internal or temporary files
+Disallow: /*.json$
+Disallow: /assets/js/*.map$
+
+# XML Sitemap
+Sitemap: https://jeerankpredictor.com/sitemap.xml
+
+# Host Directive
+Host: https://jeerankpredictor.com
