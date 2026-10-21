@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 90" width="400" height="90">
+  <defs>
+    <linearGradient id="logoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4f46e5" />
+      <stop offset="50%" stop-color="#3b82f6" />
+      <stop offset="100%" stop-color="#06b6d4" />
+    </linearGradient>
+    <linearGradient id="textGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#4f46e5" />
+      <stop offset="100%" stop-color="#0284c7" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Icon container -->
+  <g transform="translate(10, 10)">
+    <rect width="70" height="70" rx="18" fill="url(#logoGrad)"/>
+    <rect x="1" y="1" width="68" height="68" rx="17" fill="none" stroke="rgba(255,255,255,0.35)" stroke-width="1.5"/>
+    <g fill="none" stroke="#ffffff" stroke-width="3.8" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M58 30v14M12 30l23-11 23 11-23 11z"/>
+      <path d="M21 35v11c6 6 22 6 28 0V35"/>
+    </g>
+    <circle cx="53" cy="20" r="3.2" fill="#38bdf8"/>
+  </g>
+  
+  <!-- Typography -->
+  <text x="96" y="44" font-family="'Space Grotesk', -apple-system, sans-serif" font-size="26" font-weight="800" fill="#0f172a" letter-spacing="-0.5">
+    JEE Rank <tspan fill="url(#textGrad)">Predictor</tspan>
+  </text>
+  <text x="97" y="66" font-family="'Inter', -apple-system, sans-serif" font-size="12" font-weight="600" fill="#64748b" letter-spacing="0.5">
+    ADMISSIONS ANALYTICS &amp; CUTOFFS
+  </text>
+</svg>
