@@ -472,7 +472,7 @@
                 </nav>
                 <div class="header-cta-group">
                     <a href="/jee-main-rank-predictor" class="header-cta-btn">
-                        <span>⚡ Predict AIR</span>
+                        <span>⚡ Predict Rank</span>
                     </a>
                     <button class="menu-btn" aria-label="Toggle menu" onclick="toggleMenu()">
                         <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none"
