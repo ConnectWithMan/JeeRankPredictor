@@ -648,8 +648,10 @@
         if (path.includes('jee-main-percentile-predictor') || path.includes('jee-main-precentile-predictor')) return 'jee-main-percentile';
         if (path.includes('jee-main-rank-predictor')) return 'jee-main-rank';
         if (path.includes('jee-main-college-predictor')) return 'jee-main-college';
+        if (path.includes('jee-main')) return 'jee-main-guide';
         if (path.includes('jee-advanced-rank-predictor')) return 'jee-advanced-rank';
         if (path.includes('jee-advanced-college-predictor')) return 'jee-advanced-college';
+        if (path.includes('jee-advanced')) return 'jee-advanced-guide';
         return 'home';
     }
 
@@ -659,8 +661,8 @@
         const header = document.querySelector('header');
         if (!header) return;
 
-        const isJeeMain = (route === 'jee-main-rank' || route === 'jee-main-percentile' || route === 'jee-main-college');
-        const isJeeAdv = (route === 'jee-advanced-rank' || route === 'jee-advanced-college');
+        const isJeeMain = (route === 'jee-main-rank' || route === 'jee-main-percentile' || route === 'jee-main-college' || route === 'jee-main-guide');
+        const isJeeAdv = (route === 'jee-advanced-rank' || route === 'jee-advanced-college' || route === 'jee-advanced-guide');
 
         header.innerHTML = `
             <div class="header-container">
@@ -684,6 +686,13 @@
                             </svg>
                         </button>
                         <div class="nav-dropdown-menu">
+                            <a href="/jee-main" class="dropdown-item ${route === 'jee-main-guide' ? 'active' : ''}">
+                                <div class="dropdown-item-icon">📖</div>
+                                <div class="dropdown-item-content">
+                                    <span class="dropdown-item-title">JEE Main Guide</span>
+                                    <span class="dropdown-item-desc">Pattern, eligibility &amp; 75% rule</span>
+                                </div>
+                            </a>
                             <a href="/jee-main-rank-predictor" class="dropdown-item ${route === 'jee-main-rank' ? 'active' : ''}">
                                 <div class="dropdown-item-icon">⚡</div>
                                 <div class="dropdown-item-content">
@@ -716,6 +725,13 @@
                             </svg>
                         </button>
                         <div class="nav-dropdown-menu">
+                            <a href="/jee-advanced" class="dropdown-item ${route === 'jee-advanced-guide' ? 'active' : ''}">
+                                <div class="dropdown-item-icon">📖</div>
+                                <div class="dropdown-item-content">
+                                    <span class="dropdown-item-title">JEE Advanced Guide</span>
+                                    <span class="dropdown-item-desc">Pattern, eligibility &amp; IIT seat cutoffs</span>
+                                </div>
+                            </a>
                             <a href="/jee-advanced-rank-predictor" class="dropdown-item ${route === 'jee-advanced-rank' ? 'active' : ''}">
                                 <div class="dropdown-item-icon">🎯</div>
                                 <div class="dropdown-item-content">
@@ -790,10 +806,12 @@
                 <div class="footer-links-col">
                     <div class="footer-title">Predictors</div>
                     <ul class="footer-links">
+                        <li><a href="/jee-main" class="footer-link">JEE Main Guide &amp; Pattern</a></li>
                         <li><a href="/jee-main-rank-predictor" class="footer-link">JEE Main Rank Predictor</a></li>
                         <li><a href="/jee-main-percentile-predictor" class="footer-link">Percentile Predictor 2027</a></li>
                         <li><a href="/jee-main-college-predictor" class="footer-link">NIT &amp; IIIT College Predictor</a></li>
                         <li><a href="/cutoffs" class="footer-link">JoSAA Cutoff Directory</a></li>
+                        <li><a href="/jee-advanced" class="footer-link">JEE Advanced Guide &amp; IITs</a></li>
                         <li><a href="/jee-advanced-rank-predictor" class="footer-link">JEE Advanced Rank Predictor</a></li>
                         <li><a href="/jee-advanced-college-predictor" class="footer-link">IIT Seat Predictor</a></li>
                     </ul>
