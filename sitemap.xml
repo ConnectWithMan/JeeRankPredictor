@@ -12,6 +12,14 @@
         <priority>1.00</priority>
     </url>
 
+    <!-- JEE Main Complete Guide & Information -->
+    <url>
+        <loc>https://jeerankpredictor.com/jee-main</loc>
+        <lastmod>2026-11-20</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.96</priority>
+    </url>
+
     <!-- JEE Main Rank Predictor -->
     <url>
         <loc>https://jeerankpredictor.com/jee-main-rank-predictor</loc>
@@ -34,6 +42,14 @@
         <lastmod>2026-10-22</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.90</priority>
+    </url>
+
+    <!-- JEE Advanced Complete Guide & Information -->
+    <url>
+        <loc>https://jeerankpredictor.com/jee-advanced</loc>
+        <lastmod>2026-11-20</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.95</priority>
     </url>
 
     <!-- JEE Advanced Rank Predictor -->
