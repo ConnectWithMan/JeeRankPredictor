@@ -12,6 +12,14 @@
         <priority>1.00</priority>
     </url>
 
+    <!-- JEE Main Score Calculator -->
+    <url>
+        <loc>https://jeerankpredictor.com/jee-main-score-calculator</loc>
+        <lastmod>2026-11-28</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.96</priority>
+    </url>
+
     <!-- JEE Main Complete Guide & Information -->
     <url>
         <loc>https://jeerankpredictor.com/jee-main</loc>
@@ -42,6 +50,14 @@
         <lastmod>2026-10-22</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.90</priority>
+    </url>
+
+    <!-- JEE Advanced Score Calculator -->
+    <url>
+        <loc>https://jeerankpredictor.com/jee-advanced-score-calculator</loc>
+        <lastmod>2026-11-28</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.95</priority>
     </url>
 
     <!-- JEE Advanced Complete Guide & Information -->

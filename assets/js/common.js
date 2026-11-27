@@ -645,10 +645,12 @@
         if (path.includes('privacy')) return 'privacy';
         if (path.includes('terms')) return 'terms';
         if (path.includes('contact')) return 'contact';
+        if (path.includes('jee-main-score-calculator')) return 'jee-main-score';
         if (path.includes('jee-main-percentile-predictor') || path.includes('jee-main-precentile-predictor')) return 'jee-main-percentile';
         if (path.includes('jee-main-rank-predictor')) return 'jee-main-rank';
         if (path.includes('jee-main-college-predictor')) return 'jee-main-college';
         if (path.includes('jee-main')) return 'jee-main-guide';
+        if (path.includes('jee-advanced-score-calculator')) return 'jee-advanced-score';
         if (path.includes('jee-advanced-rank-predictor')) return 'jee-advanced-rank';
         if (path.includes('jee-advanced-college-predictor')) return 'jee-advanced-college';
         if (path.includes('jee-advanced')) return 'jee-advanced-guide';
@@ -661,8 +663,8 @@
         const header = document.querySelector('header');
         if (!header) return;
 
-        const isJeeMain = (route === 'jee-main-rank' || route === 'jee-main-percentile' || route === 'jee-main-college' || route === 'jee-main-guide');
-        const isJeeAdv = (route === 'jee-advanced-rank' || route === 'jee-advanced-college' || route === 'jee-advanced-guide');
+        const isJeeMain = (route === 'jee-main-rank' || route === 'jee-main-percentile' || route === 'jee-main-college' || route === 'jee-main-guide' || route === 'jee-main-score');
+        const isJeeAdv = (route === 'jee-advanced-rank' || route === 'jee-advanced-college' || route === 'jee-advanced-guide' || route === 'jee-advanced-score');
 
         header.innerHTML = `
             <div class="header-container">
@@ -686,6 +688,13 @@
                             </svg>
                         </button>
                         <div class="nav-dropdown-menu">
+                            <a href="/jee-main-score-calculator" class="dropdown-item ${route === 'jee-main-score' ? 'active' : ''}">
+                                <div class="dropdown-item-icon">🧮</div>
+                                <div class="dropdown-item-content">
+                                    <span class="dropdown-item-title">Score Calculator</span>
+                                    <span class="dropdown-item-desc">Calculate marks from response key</span>
+                                </div>
+                            </a>
                             <a href="/jee-main" class="dropdown-item ${route === 'jee-main-guide' ? 'active' : ''}">
                                 <div class="dropdown-item-icon">📖</div>
                                 <div class="dropdown-item-content">
@@ -725,6 +734,13 @@
                             </svg>
                         </button>
                         <div class="nav-dropdown-menu">
+                            <a href="/jee-advanced-score-calculator" class="dropdown-item ${route === 'jee-advanced-score' ? 'active' : ''}">
+                                <div class="dropdown-item-icon">🧮</div>
+                                <div class="dropdown-item-content">
+                                    <span class="dropdown-item-title">Score Calculator</span>
+                                    <span class="dropdown-item-desc">Calculate Paper 1 + 2 raw marks</span>
+                                </div>
+                            </a>
                             <a href="/jee-advanced" class="dropdown-item ${route === 'jee-advanced-guide' ? 'active' : ''}">
                                 <div class="dropdown-item-icon">📖</div>
                                 <div class="dropdown-item-content">
@@ -754,7 +770,7 @@
                 </nav>
                 <div class="header-cta-group">
                     <a href="/jee-main-rank-predictor" class="header-cta-btn">
-                        <span>⚡ Predict AIR</span>
+                        <span>JEE Predictor</span>
                     </a>
                     <button class="menu-btn" aria-label="Toggle menu" onclick="toggleMenu()">
                         <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none"
@@ -806,11 +822,13 @@
                 <div class="footer-links-col">
                     <div class="footer-title">Predictors</div>
                     <ul class="footer-links">
+                        <li><a href="/jee-main-score-calculator" class="footer-link">JEE Main Score Calculator</a></li>
                         <li><a href="/jee-main" class="footer-link">JEE Main Guide &amp; Pattern</a></li>
                         <li><a href="/jee-main-rank-predictor" class="footer-link">JEE Main Rank Predictor</a></li>
                         <li><a href="/jee-main-percentile-predictor" class="footer-link">Percentile Predictor 2027</a></li>
                         <li><a href="/jee-main-college-predictor" class="footer-link">NIT &amp; IIIT College Predictor</a></li>
                         <li><a href="/cutoffs" class="footer-link">JoSAA Cutoff Directory</a></li>
+                        <li><a href="/jee-advanced-score-calculator" class="footer-link">JEE Advanced Score Calculator</a></li>
                         <li><a href="/jee-advanced" class="footer-link">JEE Advanced Guide &amp; IITs</a></li>
                         <li><a href="/jee-advanced-rank-predictor" class="footer-link">JEE Advanced Rank Predictor</a></li>
                         <li><a href="/jee-advanced-college-predictor" class="footer-link">IIT Seat Predictor</a></li>
